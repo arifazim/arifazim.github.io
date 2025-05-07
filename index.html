@@ -101,10 +101,12 @@
     
     .contact-info {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 1rem;
       margin: 1rem 0;
       font-size: 0.95rem;
+      overflow-x: auto;
+      white-space: nowrap;
     }
     
     .contact-item {
@@ -250,7 +252,7 @@
       }
       
       .contact-info {
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 0.5rem;
       }
     }
