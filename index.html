@@ -1,67 +1,496 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arif Azim | Home</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background: #0077cc;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            padding: 0.5rem;
-            background: #005fa3;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: bold;
-        }
-        main {
-            padding: 2rem;
-            text-align: center;
-        }
-        footer {
-            background: #0077cc;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arif Azim - Resume</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #4b5563;
+      --light: #f9fafb;
+      --dark: #111827;
+      --accent: #3b82f6;
+      --border: #e5e7eb;
+      --success: #10b981;
+      --container-width: 1000px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.7;
+      color: var(--dark);
+      background-color: var(--light);
+      padding: 0;
+      margin: 0;
+    }
+    
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    header {
+      position: relative;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.025em;
+      transition: color 0.3s ease;
+    }
+    
+    h1:hover {
+      color: var(--primary-dark);
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 1.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      position: relative;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+    
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s ease, border-bottom 0.2s ease;
+      border-bottom: 1px solid transparent;
+    }
+    
+    a:hover {
+      color: var(--primary-dark);
+      border-bottom: 1px solid var(--primary-dark);
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .contact-item i {
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    
+    .section {
+      margin-bottom: 2rem;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .summary-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .summary-content {
+      margin-bottom: 1rem;
+    }
+    
+    ul {
+      list-style-type: none;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    li {
+      position: relative;
+      margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
+    }
+    
+    li::before {
+      content: '•';
+      position: absolute;
+      left: -1rem;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .experience-item {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px dashed var(--border);
+    }
+    
+    .experience-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-header {
+      margin-bottom: 0.5rem;
+    }
+    
+    .job-title {
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    .job-company {
+      font-weight: 500;
+      color: var(--primary);
+    }
+    
+    .job-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .job-location, .job-date {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .skill-tag {
+      background-color: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+    }
+    
+    .skill-tag:hover {
+      background-color: rgba(37, 99, 235, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    .education-item, .certification-item {
+      margin-bottom: 1rem;
+    }
+    
+    .education-degree, .certification-name {
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    .education-school, .certification-provider {
+      color: var(--secondary);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.875rem;
+      color: var(--secondary);
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .contact-info {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+    
+    /* Print styles */
+    @media print {
+      body {
+        background-color: white;
+      }
+      
+      .container {
+        box-shadow: none;
+        max-width: 100%;
+        padding: 0;
+      }
+      
+      a {
+        color: var(--dark);
+        text-decoration: none;
+        border-bottom: none;
+      }
+      
+      .skill-tag {
+        border: 1px solid var(--border);
+        background-color: transparent;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
     <header>
-        <h1>Welcome to Arif Azim's Website</h1>
+      <h1>Arif Azim</h1>
+      <div class="summary-title">Engineering Leader | Building Scalable Systems | AI Powered Solutions</div>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>San Francisco Bay Area</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <a href="tel:2016734401">(201) 673-4401</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:arif.azim@gmail.com">arif.azim@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-linkedin"></i>
+          <a href="https://linkedin.com/in/arif-azim" target="_blank">linkedin.com/in/arif-azim</a>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/arifazim" target="_blank">github.com/arifazim</a>
+        </div>
+      </div>
     </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Projects</a>
-        <a href="#">Blog</a>
-        <a href="#">Contact</a>
-    </nav>
-    <main>
-        <h2>About Me</h2>
-        <p>This is a place where I share my projects, thoughts, and discoveries.</p>
-    </main>
+
+    <section class="section">
+      <h2>Summary</h2>
+      <p class="summary-content">
+        Experienced in designing large-scale systems, enterprise APIs, and AI/ML platforms across finance, healthcare, and SaaS. 
+        Skilled at creating technology that helps businesses save money, work faster, and get better results.
+      </p>
+      <ul>
+        <li>Improved chatbot systems using AI to raise resolution rates from 42% to 68%, reduced wait times by 47%, and increased CSAT from 3.6 to 8.2, saving $1.2–$1.4M/year.</li>
+        <li>Built efficient APIs that increased speed and profits by 18%.</li>
+        <li>Tripled developer productivity with MicroFrontEnds and GraphQL Microservices.</li>
+        <li>Automated infra tasks saving 800+ hours monthly and cutting labor costs by $2.8M/year.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Experience</h2>
+      
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Engineering Leader</span> | 
+          <span class="job-company">ITD</span>
+        </div>
+        <div class="job-meta">
+          <div class="job-location"><i class="fas fa-map-marker-alt"></i> Oakland, CA</div>
+          <div class="job-date"><i class="far fa-calendar-alt"></i> 2024 - Present</div>
+        </div>
+        <ul>
+          <li>Integrated foundation models with secure APIs for LLM-based financial insights.</li>
+          <li>Launched LLM integrations with Ivanti and Salesforce reducing churn by 28%.</li>
+          <li>Improved chatbot CSAT from 3.6 to 8.2 and saved $1.2–$1.4M/year using RAG GenAI.</li>
+          <li>Mentored senior engineers and secured 25% team budget increase.</li>
+        </ul>
+      </div>
+      
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Advisor</span> | 
+          <span class="job-company">Speetch.AI</span>
+        </div>
+        <div class="job-meta">
+          <div class="job-location"><i class="fas fa-map-marker-alt"></i> Austin, TX</div>
+          <div class="job-date"><i class="far fa-calendar-alt"></i> 2023 - 2024</div>
+        </div>
+        <ul>
+          <li>Advised Conversational AI with real-time speech translation and RAG pipelines.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Sr. Engineering Manager</span> | 
+          <span class="job-company">Coupa</span>
+        </div>
+        <div class="job-meta">
+          <div class="job-location"><i class="fas fa-map-marker-alt"></i> San Mateo, CA</div>
+          <div class="job-date"><i class="far fa-calendar-alt"></i> 2022 - 2023</div>
+        </div>
+        <ul>
+          <li>Led core platform engineering tackling enterprise expense challenges.</li>
+          <li>Improved API integration speed and profitability by 18%.</li>
+          <li>Tripled productivity using MicroFrontEnds and GraphQL.</li>
+          <li>Managed 12 engineers globally.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Engineering Manager</span> | 
+          <span class="job-company">Wiser</span>
+        </div>
+        <div class="job-meta">
+          <div class="job-location"><i class="fas fa-map-marker-alt"></i> San Mateo, CA</div>
+          <div class="job-date"><i class="far fa-calendar-alt"></i> 2022</div>
+        </div>
+        <ul>
+          <li>Launched SSO platform and scaled engineering team from 1 to 7+.</li>
+          <li>Improved platform reliability with IaC using Ansible and Terraform.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Engineering Manager</span> | 
+          <span class="job-company">NetScout</span>
+        </div>
+        <div class="job-meta">
+          <div class="job-location"><i class="fas fa-map-marker-alt"></i> San Jose, CA</div>
+          <div class="job-date"><i class="far fa-calendar-alt"></i> 2016 - 2021</div>
+        </div>
+        <ul>
+          <li>Led cloud/on-prem analytics and reduced infra workload by $2.8M annually.</li>
+          <li>Built hybrid cloud deployments using IaC and improved delivery pipelines.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Technical Lead</span> | 
+          <span class="job-company">Roche</span>
+        </div>
+        <div class="job-meta">
+          <div class="job-location"><i class="fas fa-map-marker-alt"></i> Mountain View, CA</div>
+          <div class="job-date"><i class="far fa-calendar-alt"></i> 2013 - 2016</div>
+        </div>
+        <ul>
+          <li>Delivered lab automation for cancer workflows and tissue sequencing.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Staff Software Engineer</span> | 
+          <span class="job-company">Cintel Systems</span>
+        </div>
+        <div class="job-meta">
+          <div class="job-location"><i class="fas fa-map-marker-alt"></i> Pleasanton, CA</div>
+          <div class="job-date"><i class="far fa-calendar-alt"></i> 2007 - 2013</div>
+        </div>
+        <ul>
+          <li>Worked with Tesla Motors, Gilead Sciences, ThermoFisher, and Siemens Health.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <span class="job-title">Senior Software Engineer</span> | 
+          <span class="job-company">Enterprise Software Solution</span>
+        </div>
+        <div class="job-meta">
+          <div class="job-location"><i class="fas fa-map-marker-alt"></i> Edison, NJ</div>
+          <div class="job-date"><i class="far fa-calendar-alt"></i> 2006 - 2007</div>
+        </div>
+        <ul>
+          <li>Clients included Lehman Brothers and Unilever Best Foods.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Education</h2>
+      <div class="education-item">
+        <div class="education-degree">MS in Information Technology</div>
+        <div class="education-school">SMU (Manipal University, India)</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Certification</h2>
+      <div class="certification-item">
+        <div class="certification-name">Generative AI with Large Language Models</div>
+        <div class="certification-provider">DeepLearning.AI, AWS</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Core Skills</h2>
+      <div class="skills-container">
+        <span class="skill-tag">Builder</span>
+        <span class="skill-tag">Model Training</span>
+        <span class="skill-tag">Fine Tuning</span>
+        <span class="skill-tag">RAG</span>
+        <span class="skill-tag">Agentic AI</span>
+        <span class="skill-tag">GenAI</span>
+        <span class="skill-tag">Project Management</span>
+        <span class="skill-tag">Mentoring</span>
+        <span class="skill-tag">Architecture Design</span>
+        <span class="skill-tag">Agile/Scrum</span>
+        <span class="skill-tag">Cross-functional Teams</span>
+        <span class="skill-tag">Customer Support</span>
+        <span class="skill-tag">Product Thinking</span>
+        <span class="skill-tag">Scaling Systems</span>
+        <span class="skill-tag">Code Review</span>
+        <span class="skill-tag">DevOps</span>
+        <span class="skill-tag">Distributed Systems</span>
+        <span class="skill-tag">Hands-on Development</span>
+      </div>
+    </section>
+    
     <footer>
-        <p>&copy; 2025 Arif Azim | All Rights Reserved</p>
+      <p>© 2025 Arif Azim. Last updated May 2025</p>
     </footer>
+  </div>
 </body>
 </html>
