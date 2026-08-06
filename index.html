@@ -3,321 +3,324 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arif Azim - Resume</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <title>Arif Azim - Platform Engineering Leader</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary: #4b5563;
-      --light: #f9fafb;
-      --dark: #111827;
-      --accent: #3b82f6;
-      --border: #e5e7eb;
-      --success: #10b981;
-      --container-width: 1000px;
+      --primary: #1e40af;
+      --primary-light: #dbeafe;
+      --secondary: #475569;
+      --muted: #64748b;
+      --light: #f8fafc;
+      --dark: #0f172a;
+      --border: #e2e8f0;
+      --win-bg: #f1f5f9;
+      --container-width: 920px;
     }
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      line-height: 1.7;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.65;
       color: var(--dark);
       background-color: var(--light);
-      padding: 0;
-      margin: 0;
     }
-    
+
     .container {
       max-width: var(--container-width);
       margin: 0 auto;
-      padding: 2rem;
-      background-color: white;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      padding: 2.5rem 2rem;
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
     }
-    
+
     header {
       position: relative;
-      padding: 1.5rem 0 1rem;
-      margin-bottom: 1rem;
+      padding-bottom: 1.25rem;
+      margin-bottom: 0.5rem;
       border-bottom: 1px solid var(--border);
     }
-    
+
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.025em;
-      transition: color 0.3s ease;
+      color: var(--dark);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.35rem;
     }
-    
-    h1:hover {
-      color: var(--primary-dark);
-    }
-    
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin: 1rem 0 0.75rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--border);
-      position: relative;
-    }
-    
-    h2::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 50px;
-      height: 2px;
-      background-color: var(--primary);
-    }
-    
-    p {
-      margin-bottom: 1rem;
+
+    .tagline {
+      font-size: 1rem;
+      font-weight: 500;
       color: var(--secondary);
+      margin-bottom: 0.75rem;
     }
-    
+
+    h2 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 2rem 0 0.875rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    p {
+      color: var(--secondary);
+      margin-bottom: 0.75rem;
+    }
+
     a {
       color: var(--primary);
       text-decoration: none;
-      transition: color 0.2s ease, border-bottom 0.2s ease;
-      border-bottom: 1px solid transparent;
     }
-    
+
     a:hover {
-      color: var(--primary-dark);
-      border-bottom: 1px solid var(--primary-dark);
+      text-decoration: underline;
     }
-    
+
     .contact-info {
       display: flex;
-      flex-wrap: nowrap;
-      gap: 1rem;
-      margin: 0.5rem 0;
-      font-size: 0.95rem;
-      overflow-x: auto;
-      white-space: nowrap;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      font-size: 0.875rem;
+      color: var(--muted);
     }
-    
+
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
-    
+
     .contact-item i {
       color: var(--primary);
-      font-size: 1.1rem;
+      width: 1rem;
+      text-align: center;
     }
-    
+
     .section {
-      margin-bottom: 1.75rem;
-      animation: fadeIn 0.8s ease-in-out;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .summary-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--secondary);
       margin-bottom: 0.5rem;
     }
-    
-    .summary-content {
-      margin-bottom: 1rem;
-    }
-    
+
     ul {
-      list-style-type: none;
-      padding-left: 1.5rem;
-      margin-bottom: 1.5rem;
+      list-style: none;
+      padding-left: 1.25rem;
     }
-    
+
     li {
       position: relative;
-      margin-bottom: 0.5rem;
-      padding-left: 0.5rem;
+      margin-bottom: 0.45rem;
+      color: var(--secondary);
+      font-size: 0.9375rem;
     }
-    
+
     li::before {
       content: '•';
       position: absolute;
       left: -1rem;
       color: var(--primary);
-      font-weight: bold;
+      font-weight: 700;
     }
-    
+
+    .wins-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .win-card {
+      background: var(--win-bg);
+      border-left: 3px solid var(--primary);
+      padding: 0.875rem 1rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.9375rem;
+      color: var(--secondary);
+      line-height: 1.55;
+    }
+
+    .win-card strong {
+      color: var(--dark);
+    }
+
+    .expertise-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .expertise-group h3 {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .expertise-group p {
+      font-size: 0.9375rem;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    .expertise-group.leadership {
+      margin-top: 0.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .expertise-group.leadership h3 {
+      color: #7c3aed;
+    }
+
     .experience-item {
-      margin-bottom: 1.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px dashed var(--border);
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid var(--border);
     }
-    
+
     .experience-item:last-child {
       border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
-    
+
     .job-header {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
     }
-    
+
     .job-title {
       font-weight: 600;
       color: var(--dark);
+      font-size: 1rem;
     }
-    
+
     .job-company {
-      font-weight: 500;
+      font-weight: 600;
       color: var(--primary);
     }
-    
+
     .job-meta {
       display: flex;
-      gap: 1rem;
-      font-size: 0.9rem;
-      color: var(--secondary);
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .job-scope {
+      font-size: 0.875rem;
+      font-style: italic;
+      color: var(--muted);
       margin-bottom: 0.5rem;
     }
-    
-    .job-location, .job-date {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
+
+    .earlier-roles {
+      font-size: 0.9375rem;
+      color: var(--secondary);
+      line-height: 1.6;
     }
-    
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+
+    .cert-list .certification-item {
+      margin-bottom: 0.5rem;
+      font-size: 0.9375rem;
+      color: var(--secondary);
     }
-    
-    .skill-tag {
-      background-color: rgba(37, 99, 235, 0.1);
-      color: var(--primary);
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.875rem;
-      transition: all 0.2s ease;
-    }
-    
-    .skill-tag:hover {
-      background-color: rgba(37, 99, 235, 0.2);
-      transform: translateY(-2px);
-    }
-    
-    .education-item, .certification-item {
-      margin-bottom: 1rem;
-    }
-    
-    .education-degree, .certification-name {
+
+    .cert-list .certification-name {
       font-weight: 600;
       color: var(--dark);
     }
-    
-    .education-school, .certification-provider {
+
+    .education-item {
+      margin-top: 1rem;
+      font-size: 0.9375rem;
       color: var(--secondary);
     }
-    
-    footer {
-      text-align: center;
-      padding: 1rem 0;
-      font-size: 0.875rem;
-      color: var(--secondary);
-      border-top: 1px solid var(--border);
-      margin-top: 2rem;
+
+    .education-degree {
+      font-weight: 600;
+      color: var(--dark);
     }
-    
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .container {
-        padding: 1.5rem;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-      
-      .contact-info {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-    }
-    
-    /* Print styles */
-    @media print {
-      body {
-        background-color: white;
-      }
-      
-      .container {
-        box-shadow: none;
-        max-width: 100%;
-        padding: 0;
-      }
-      
-      a {
-        color: var(--dark);
-        text-decoration: none;
-        border-bottom: none;
-      }
-      
-      .skill-tag {
-        border: 1px solid var(--border);
-        background-color: transparent;
-      }
-    }
+
     .download-btn {
-      display: inline-block;
-      padding: 0.6rem 1.4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1.1rem;
       background-color: var(--primary);
       color: #fff;
       font-weight: 600;
-      border: none;
+      font-size: 0.875rem;
       border-radius: 6px;
-      font-size: 1rem;
       text-decoration: none;
-      transition: background 0.2s, box-shadow 0.2s;
-      box-shadow: 0 2px 8px rgba(37,99,235,0.08);
-      cursor: pointer;
-      z-index: 10;
+      transition: background 0.2s;
     }
-    .download-btn i {
-      margin-right: 0.5em;
-      font-size: 1.1em;
-    }
+
     .download-btn:hover {
-      background-color: var(--primary-dark);
-      color: #fff;
+      background-color: #1e3a8a;
       text-decoration: none;
-      box-shadow: 0 4px 16px rgba(37,99,235,0.16);
     }
+
     .header-download-btn {
       position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      margin: 0;
+      top: 0;
+      right: 0;
     }
-    @media (max-width: 600px) {
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 0 0.5rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 1.5rem 1.25rem;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+      }
+
       .header-download-btn {
         position: static;
-        display: block;
-        width: 100%;
-        margin: 1rem 0 0.5rem 0;
-        text-align: center;
+        display: inline-flex;
+        margin-top: 0.75rem;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .container {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+
+      .download-btn {
+        display: none;
+      }
+
+      .win-card {
+        background: transparent;
+        border-left: 2px solid var(--dark);
+        padding-left: 0.75rem;
       }
     }
   </style>
@@ -326,15 +329,15 @@
   <div class="container">
     <header>
       <h1>Arif Azim</h1>
-      <div class="summary-title">Senior AI Engineering Leader | 0 → 1 Building Enterprise Platforms, Agentic AI, GenAI & conversational AI products that cut costs, boost productivity & delight customers</div>
-      <a href="https://app.box.com/file/1853924661308?s=8h7im3u8mdrfd2tpt87iibx06emxp4it" class="download-btn header-download-btn" target="_blank" rel="noopener" download>
-        <i class="fas fa-file-pdf"></i> Download Resume (PDF)
+      <div class="tagline">Platform Engineering Leader · Distributed Systems · AI-Native Infrastructure</div>
+      <a href="Arif-Azim-Resume-AIEL.pdf" class="download-btn header-download-btn" target="_blank" rel="noopener">
+        <i class="fas fa-file-pdf"></i> Download PDF
       </a>
-      
+
       <div class="contact-info">
         <div class="contact-item">
           <i class="fas fa-map-marker-alt"></i>
-          <span>San Francisco Bay Area</span>
+          <span>SF Bay Area</span>
         </div>
         <div class="contact-item">
           <i class="fas fa-phone-alt"></i>
@@ -346,215 +349,195 @@
         </div>
         <div class="contact-item">
           <i class="fab fa-linkedin"></i>
-          <a href="https://linkedin.com/in/arif-azim" target="_blank">linkedin.com/in/arif-azim</a>
+          <a href="https://linkedin.com/in/arif-azim" target="_blank" rel="noopener">linkedin.com/in/arif-azim</a>
         </div>
         <div class="contact-item">
-          <i class="fab fa-github"></i>
-          <a href="https://github.com/arifazim" target="_blank">github.com/arifazim</a>
+          <i class="fas fa-certificate"></i>
+          <a href="https://www.kaggle.com/certification/badges/arif3012/108" target="_blank" rel="noopener">Kaggle Certifications</a>
         </div>
       </div>
     </header>
 
     <section class="section">
-      <h2>Summary</h2>
-      <p class="summary-content">
-        10+ years designing enterprise-scale platforms, APIs, revenue generating products.
+      <h2>Leadership Summary</h2>
+      <p>
+        Platform Engineering Leader with 15+ years building backend systems, APIs, distributed architectures, and developer platforms, increasingly powered by AI-native infrastructure. Architect of platform primitives, reliability standards, and CI/CD systems that scale across product teams. Track record of $1.3M support cost reduction, 70% faster CI cycles, and $2.8M in automation savings while leading distributed teams across US, LatAm, Ukraine, and India. Combines deep backend platform credibility with hands-on LLMOps and agentic systems expertise.
       </p>
-      <ul>
-        <li>Spearheaded the development of an API-driven integration at Coupa, increasing efficiency and profits by 18%.</li>
-        <li>Led global engineering teams that tripled developer productivity by strategically adopting MicroFrontEnds architecture and optimizing with GraphQL microservices.</li>
-        <li>Transformed infrastructure management through automation, saving 800+ hours/month and reducing manual labor costs by $2.8M/year.</li>
-      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Selected Wins</h2>
+      <div class="wins-grid">
+        <div class="win-card">
+          <strong>$1.3M annual cost reduction</strong> through a production hybrid-RAG support platform: automated resolution rate 42% to 68%, CSAT 3.6 to 8.2.
+        </div>
+        <div class="win-card">
+          <strong>$2.8M in annual automation savings</strong> at Coupa via backend platform services and developer tooling adopted across enterprise customer integrations.
+        </div>
+        <div class="win-card">
+          <strong>70% faster CI/CD cycles</strong> by embedding regression, drift, and quality gates into the deployment pipeline. Blocked broken builds before production.
+        </div>
+        <div class="win-card">
+          <strong>65% fewer support escalations</strong> via an agentic routing system with guardrails, retries, and observability. 8K+ daily sessions at 99%+ task completion.
+        </div>
+        <div class="win-card">
+          <strong>Scaled distributed teams of 12 to 15 engineers</strong> across US, LatAm, Ukraine, and India. Established hiring bar, engineering ladder, and incident response standards.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Platform &amp; Engineering Expertise</h2>
+      <div class="expertise-grid">
+        <div class="expertise-group">
+          <h3>Backend &amp; Distributed Systems</h3>
+          <p>Python, Node.js, Go (learning), REST API design, microservices, event-driven architecture, PostgreSQL, schema design, API contracts, idempotency, rate limiting, circuit breakers</p>
+        </div>
+        <div class="expertise-group">
+          <h3>Platform &amp; Developer Experience</h3>
+          <p>Internal developer platforms, platform primitives, CI/CD pipelines, micro-frontends, observability, SLOs, runtime standards, on-call and incident response</p>
+        </div>
+        <div class="expertise-group">
+          <h3>Cloud &amp; Infrastructure</h3>
+          <p>AWS (Lambda, Cognito, RDS, S3, ECS, Step Functions, Bedrock, SageMaker), GCP, Azure, Terraform, Docker, Ansible, hybrid cloud, Vercel, Render</p>
+        </div>
+        <div class="expertise-group">
+          <h3>AI-Native Infrastructure</h3>
+          <p>LLM serving patterns, RAG pipelines, vector DBs (FAISS, Qdrant, Chroma), evaluation harnesses, LLM-as-judge scoring, agentic runtime patterns (LangGraph, LangChain), Ollama, vLLM, OpenRouter</p>
+        </div>
+        <div class="expertise-group leadership">
+          <h3>Leadership</h3>
+          <p>Hiring and coaching, distributed team management, OKR ownership, cross-functional alignment (product, ML, infra), executive communication, incident command, roadmap planning</p>
+        </div>
+      </div>
     </section>
 
     <section class="section">
       <h2>Experience</h2>
-      
+
       <div class="experience-item">
         <div class="job-header">
-          <span class="job-title">Engineering Leader</span> | 
+          <span class="job-title">Engineering Leader, Platform &amp; AI Infrastructure</span> |
           <span class="job-company">ITD</span>
         </div>
         <div class="job-meta">
-          <div class="job-location"><i class="fas fa-map-marker-alt"></i> Oakland, CA</div>
-          <div class="job-date"><i class="far fa-calendar-alt"></i> 2024 - Present</div>
+          <span><i class="fas fa-map-marker-alt"></i> Oakland, CA</span>
+          <span><i class="far fa-calendar-alt"></i> May 2024 - Present</span>
         </div>
+        <div class="job-scope">Scope: Backend platform and AI infrastructure team; platform primitives adopted across 5+ product teams.</div>
         <ul>
-          <li>Built an agentic AI system for real-time inventory reconciliation across 7 warehouses, replacing legacy ETL and cutting SKU mismatch failures by 40%, enabling $3.1M recovery and predictive restocking.</li>
-          <li>Upgraded customer chatbots with hybrid RAG AI, resolution rate jumped from 42% to 68%, CSAT rose from 3.6 to 8.2, saving $1.2M–$1.4M per year.</li>
-          <li>Created an AI redaction tool that auto-removes racial covenants from scanned documents, slashed manual audit work by over 80%.</li>
-          <li>Launched an Agentic AI navigation router for apps and ticketing, improved user experience and reduced support escalations by 65%.</li>
-          <li>Grew engineering talent by promoting senior engineers to tech leads and secured 27% more team funding.</li>
-          <li>Instilled a culture of accountability, talent development, and executional excellence to build scalable growth engines positioning platform engineering for mission-critical, AI-driven enterprise applications.</li>
+          <li>Built and scaled backend services for data redaction, route navigation, and address validation. Integrated agentic AI components where they improved accuracy and automation rates.</li>
+          <li>Designed reusable backend platform primitives (routing, guardrails, retries, semantic caching, fallbacks) that standardized service reliability across 5+ product teams.</li>
+          <li>Built scalable API-driven backend services with CI/CD integration. Reduced regressions 70% through automated quality gates.</li>
+          <li>Architected a production hybrid retrieval platform powering customer-facing automation. Resolution rate 42% to 68%, CSAT 3.6 to 8.2, $1.3M annual support cost reduction.</li>
+          <li>Implemented production drift and regression monitoring on live traffic with automated statistical alerting on quality degradation, retrieval score drops, and latency spikes.</li>
+          <li>Partnered with infrastructure and product to define runtime standards, observability patterns, and SLO baselines for backend services and automated workflows.</li>
+          <li>Led cross-functional execution across product, ML, and platform teams. Delivered backend services at 10K+ daily session volume.</li>
         </ul>
       </div>
-      
+
       <div class="experience-item">
         <div class="job-header">
-          <span class="job-title">Advisor</span> | 
+          <span class="job-title">Engineering Advisor</span> |
           <span class="job-company">Speetch.AI</span>
         </div>
         <div class="job-meta">
-          <div class="job-location"><i class="fas fa-map-marker-alt"></i> Austin, TX</div>
-          <div class="job-date"><i class="far fa-calendar-alt"></i> 2023 - 2024</div>
+          <span><i class="fas fa-map-marker-alt"></i> Austin, TX</span>
+          <span><i class="far fa-calendar-alt"></i> Oct 2023 - May 2024</span>
         </div>
         <ul>
-          <li>Served as a strategic advisor on Conversational AI products focused on enhancing customer interactions through real-time speech translation, summarization, and intent recognition.</li>
-          <li>Designed in-place translation features for live customer support, enabled seamless cross-language interactions for 12+ languages with 94% accuracy.</li>
-          <li>Designed and implemented an Security Log Analysis AI Agent that autonomously detects, analyzes, and responds to potential threats in real-time using advanced machine learning and behavioral analytics.</li>
+          <li>Advised on backend architecture and AI integration patterns for conversational AI: real-time translation, summarization, and intent detection.</li>
+          <li>Designed evaluation infrastructure for multilingual systems spanning 12+ languages. Automated scoring pipelines, regression suites, and quality gates at 94% production accuracy.</li>
+          <li>Built adversarial test methodology with edge-case datasets across accents, noisy audio, and domain-specific jargon. Hardened production models before enterprise deployment.</li>
         </ul>
       </div>
 
       <div class="experience-item">
         <div class="job-header">
-          <span class="job-title">Sr. Engineering Manager</span> | 
+          <span class="job-title">Sr. Engineering Manager</span> |
           <span class="job-company">Coupa</span>
         </div>
         <div class="job-meta">
-          <div class="job-location"><i class="fas fa-map-marker-alt"></i> San Mateo, CA</div>
-          <div class="job-date"><i class="far fa-calendar-alt"></i> 2022 - 2023</div>
+          <span><i class="fas fa-map-marker-alt"></i> San Mateo, CA</span>
+          <span><i class="far fa-calendar-alt"></i> Dec 2022 - Oct 2023</span>
         </div>
+        <div class="job-scope">Scope: 15-engineer distributed team across US, LatAm, Ukraine, and India.</div>
         <ul>
-          <li>Led global high-performing team responsible for core platform engineering features, addressing customer business expense challenges.</li>
-          <li>Spearheaded the design and implementation of an API-driven integration, improving efficiency and increasing profits by 18%.</li>
-          <li>Tripled developer productivity by adopting MicroFrontEnds Architecture and GraphQL Microservices.</li>
-          <li>Managed a team of 12 engineers across the US, Ukraine, and India, driving successful project delivery.</li>
+          <li>Owned backend API reliability, SLAs, and incident response for enterprise customers. Led architecture reviews and guided scaling decisions across the backend platform.</li>
+          <li>Improved developer experience by decomposing monolithic UI into micro-frontends and platform APIs. Eliminated deployment bottlenecks and merge conflicts across product teams.</li>
+          <li>Built automation services delivering $2.8M in annual savings. Drove roadmap planning and cross-functional alignment with product, infrastructure, and data science.</li>
+          <li>Established hiring bar, engineering career ladder, and operational excellence standards for the distributed backend organization.</li>
         </ul>
       </div>
 
       <div class="experience-item">
         <div class="job-header">
-          <span class="job-title">Engineering Manager</span> | 
+          <span class="job-title">Engineering Manager</span> |
           <span class="job-company">Wiser</span>
         </div>
         <div class="job-meta">
-          <div class="job-location"><i class="fas fa-map-marker-alt"></i> San Mateo, CA</div>
-          <div class="job-date"><i class="far fa-calendar-alt"></i> 2022</div>
+          <span><i class="fas fa-map-marker-alt"></i> San Mateo, CA</span>
+          <span><i class="far fa-calendar-alt"></i> Feb 2022 - Dec 2022</span>
         </div>
         <ul>
-          <li>Designed and built platform infrastructure products, including a Single-Sign-On platform that boosted user growth.</li>
-          <li>Designed and launched a Single-Sign-On authentication platform, providing seamless access and improved user experience.</li>
-          <li>Led platform reliability improvements through Infrastructure-as-Code using Ansible and Terraform.</li>
-          <li>Grew the engineering team from 1 to 7+ members in the US and LatAm.</li>
+          <li>Built SSO and backend authentication systems serving thousands of users. Designed Terraform and Ansible infrastructure for reliable production deployments.</li>
+          <li>Scaled engineering team from 1 to 7 across US and LatAm. Shipped backend features at startup velocity in a high-ambiguity environment.</li>
         </ul>
       </div>
 
       <div class="experience-item">
         <div class="job-header">
-          <span class="job-title">Engineering Manager</span> | 
+          <span class="job-title">Engineering Manager</span> |
           <span class="job-company">NetScout</span>
         </div>
         <div class="job-meta">
-          <div class="job-location"><i class="fas fa-map-marker-alt"></i> San Jose, CA</div>
-          <div class="job-date"><i class="far fa-calendar-alt"></i> 2016 - 2021</div>
+          <span><i class="fas fa-map-marker-alt"></i> San Jose, CA</span>
+          <span><i class="far fa-calendar-alt"></i> 2016 - 2021</span>
         </div>
         <ul>
-          <li>Led teams managing real-time analytic infrastructure health monitoring platforms to ensure cloud and on-premise application performance.</li>
-          <li>Streamlined DevOps practice through automation, achieving a monthly reduction of over 800 hours of manual labor, equivalent to $2.8 million in annual cost savings.</li>
-          <li>Designed and developed Infrastructure-as-Code for hybrid cloud infrastructures, improving deployment cycles.</li>
-          <li>Led teams responsible for Infrastructure and API groups, optimizing platform delivery pipelines on AWS.</li>
+          <li>Led teams building real-time monitoring platforms for cloud and on-prem performance. Owned uptime, performance SLOs, and incident response for platform and API services.</li>
+          <li>Built Infrastructure-as-Code for hybrid cloud deployments. Supported enterprise customers on API integrations and onboarding.</li>
         </ul>
       </div>
 
       <div class="experience-item">
         <div class="job-header">
-          <span class="job-title">Technical Lead</span> | 
-          <span class="job-company">Roche</span>
+          <span class="job-title">Earlier Engineering Roles</span>
         </div>
         <div class="job-meta">
-          <div class="job-location"><i class="fas fa-map-marker-alt"></i> Mountain View, CA</div>
-          <div class="job-date"><i class="far fa-calendar-alt"></i> 2013 - 2016</div>
+          <span><i class="far fa-calendar-alt"></i> 2006 - 2016</span>
         </div>
-        <ul>
-          <li>Delivered workflow automation applications for cancer treatment in advanced labs and tissue dissection for next-gen sequencing systems including Digital Pathology Workflow Automation and Tissue Dissecting Workflow Automation for advanced sequencing systems.</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <div class="job-header">
-          <span class="job-title">Staff Software Engineer</span> | 
-          <span class="job-company">Cintel Systems</span>
-        </div>
-        <div class="job-meta">
-          <div class="job-location"><i class="fas fa-map-marker-alt"></i> Pleasanton, CA</div>
-          <div class="job-date"><i class="far fa-calendar-alt"></i> 2007 - 2013</div>
-        </div>
-        <ul>
-          <li>Worked for Tesla Motors, Gilead Sciences, ThermoFisher, and Siemens Health.</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <div class="job-header">
-          <span class="job-title">Senior Software Engineer</span> | 
-          <span class="job-company">Enterprise Software Solution</span>
-        </div>
-        <div class="job-meta">
-          <div class="job-location"><i class="fas fa-map-marker-alt"></i> Edison, NJ</div>
-          <div class="job-date"><i class="far fa-calendar-alt"></i> 2006 - 2007</div>
-        </div>
-        <ul>
-          <li>Worked for Lehman Brothers and Unilever Best Foods.</li>
-        </ul>
+        <p class="earlier-roles">
+          Roche (lab automation, cancer diagnostics), Tesla, Gilead, ThermoFisher, Siemens Health, Lehman Brothers, Unilever. Backend engineering, distributed systems, and enterprise integrations.
+        </p>
       </div>
     </section>
 
     <section class="section">
-      <h2>Education</h2>
+      <h2>Certifications &amp; Education</h2>
+      <div class="cert-list">
+        <div class="certification-item">
+          <span class="certification-name">Generative AI with Large Language Models</span>
+          <span>DeepLearning.AI + AWS</span>
+          (<a href="https://www.coursera.org/account/accomplishments/verify/QQ2H60ZRZJBV" target="_blank" rel="noopener">Verify</a>)
+        </div>
+        <div class="certification-item">
+          <span class="certification-name">Databricks Generative AI Engineer Associate</span>
+          <span>in progress</span>
+        </div>
+        <div class="certification-item">
+          <span class="certification-name">AWS Machine Learning Engineer Associate (MLA-C01)</span>
+          <span>in progress</span>
+        </div>
+      </div>
       <div class="education-item">
         <div class="education-degree">MS in Information Technology</div>
-        <div class="education-school">SMU (Manipal University, India)</div>
+        <div>Manipal University (SMU), India, 2003</div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Certification</h2>
-      <div class="certification-item">
-        <div class="certification-name">Generative AI with Large Language Models</div>
-        <div class="certification-provider">DeepLearning.AI, AWS - <a href="https://www.coursera.org/account/accomplishments/verify/QQ2H60ZRZJBV" target="_blank">Verify</a></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Core Technical Skills</h2>
-      <div class="skills-container">
-        <span class="skill-tag">Hands-On Builder with Deep AI Engineering Fluency</span>
-        <span class="skill-tag">Agentic AI Systems</span>
-        <span class="skill-tag">RAG & Retrieval Workflows</span>
-        <span class="skill-tag">LLM Hosting & Optimization</span>
-        <span class="skill-tag">Vector Databases (FAISS, Qdrant, Chroma)</span>
-        <span class="skill-tag">Agent Frameworks (LangChain, LangGraph, LangMem, AutoGen, CrewAI)</span>
-        <span class="skill-tag">AI Dev Tools (Cursor, Windsurf, Trae)</span>
-        <span class="skill-tag">Scalable Architecture & Distributed Systems</span>
-        <span class="skill-tag">Cloud-native Deployment (Vercel, Railway, OnRender, AWS, GCP, Azure)</span>
-        <span class="skill-tag">Platform Engineering</span>
-        <span class="skill-tag">DevOps & Observability</span>
-        <span class="skill-tag">Code Review & Technical Mentorship</span>
-        <span class="skill-tag">Reducing Technical Debts</span>
-        <span class="skill-tag">Tooling & Workflow Optimization</span>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Leadership & Management Skills</h2>
-      <div class="skills-container">
-        <span class="skill-tag">Cross-functional Team Leadership</span>
-        <span class="skill-tag">Performance Reviews & Career Growth</span>
-        <span class="skill-tag">Conflict Resolution & Mediation</span>
-        <span class="skill-tag">Stakeholder Communication</span>
-        <span class="skill-tag">Prioritization & Tradeoff Decisions</span>
-        <span class="skill-tag">Incident Management</span>
-        <span class="skill-tag">OKRs & KPI Tracking</span>
-        <span class="skill-tag">Customer Issue Resolution</span>
-        <span class="skill-tag">Sprint Planning & Execution</span>
-        <span class="skill-tag">Team Building & Talent Development</span>
-        <span class="skill-tag">Strategic Planning</span>
-        <span class="skill-tag">Budget Management</span>
-      </div>
-    </section>
-    
     <footer>
-      <p>© 2025 Arif Azim. Last updated October 2025</p>
+      <p>&copy; 2026 Arif Azim</p>
     </footer>
   </div>
 </body>
