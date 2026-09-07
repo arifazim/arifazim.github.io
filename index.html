@@ -270,8 +270,9 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1.1rem 1.75rem;
+      gap: 0.85rem;
       margin-top: 0.35rem;
+      margin-bottom: 0.75rem;
       animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
     }
 
@@ -307,12 +308,13 @@
       flex-shrink: 0;
     }
 
-    .contact-pills {
+    .contact-social-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 0.55rem 0.85rem;
-      font-size: 0.88rem;
+      gap: 0.5rem 0.65rem;
+      margin-top: 0.15rem;
+      animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
     }
 
     .contact-pill {
@@ -391,15 +393,6 @@
       background: rgba(201, 52, 0, 0.07);
       border-color: rgba(201, 52, 0, 0.2);
       box-shadow: 0 0 14px rgba(201, 52, 0, 0.12);
-    }
-
-    /* Social links row */
-    .social-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      font-size: 0.86rem;
-      animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
     }
 
     .social-link {
@@ -483,6 +476,118 @@
       background: rgba(32, 190, 255, 0.1);
       border-color: rgba(32, 190, 255, 0.28);
       box-shadow: 0 0 14px rgba(32, 190, 255, 0.16);
+    }
+
+    /* Certification row — refined multi-layer glow (Linear / Vercel style) */
+    .cert-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.85rem;
+      animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.36s both;
+    }
+
+    .cert-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.46rem 1rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.015em;
+      border: 1px solid transparent;
+      text-decoration: none;
+      opacity: 1;
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+    }
+
+    .cert-link.deeplearning {
+      color: #ff8a6b;
+      background: linear-gradient(135deg, rgba(255, 107, 74, 0.14), rgba(255, 140, 90, 0.08));
+      border-color: rgba(255, 107, 74, 0.38);
+      box-shadow:
+        0 0 0 1px rgba(255, 107, 74, 0.06),
+        0 2px 8px rgba(255, 107, 74, 0.12),
+        0 0 20px rgba(255, 107, 74, 0.18),
+        0 0 40px rgba(255, 107, 74, 0.08);
+    }
+
+    .cert-link.google {
+      color: #b4a0ff;
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.14), rgba(139, 120, 255, 0.08));
+      border-color: rgba(167, 139, 250, 0.38);
+      box-shadow:
+        0 0 0 1px rgba(167, 139, 250, 0.06),
+        0 2px 8px rgba(167, 139, 250, 0.12),
+        0 0 20px rgba(167, 139, 250, 0.18),
+        0 0 40px rgba(167, 139, 250, 0.08);
+    }
+
+    .cert-link:hover {
+      transform: translateY(-1.5px);
+      opacity: 1;
+    }
+
+    .cert-link.deeplearning:hover {
+      border-color: rgba(255, 107, 74, 0.55);
+      background: linear-gradient(135deg, rgba(255, 107, 74, 0.2), rgba(255, 140, 90, 0.12));
+      box-shadow:
+        0 0 0 1px rgba(255, 107, 74, 0.1),
+        0 4px 14px rgba(255, 107, 74, 0.2),
+        0 0 28px rgba(255, 107, 74, 0.28),
+        0 0 56px rgba(255, 107, 74, 0.12);
+    }
+
+    .cert-link.google:hover {
+      border-color: rgba(167, 139, 250, 0.55);
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(139, 120, 255, 0.12));
+      box-shadow:
+        0 0 0 1px rgba(167, 139, 250, 0.1),
+        0 4px 14px rgba(167, 139, 250, 0.2),
+        0 0 28px rgba(167, 139, 250, 0.28),
+        0 0 56px rgba(167, 139, 250, 0.12);
+    }
+
+    [data-theme="light"] .cert-link.deeplearning {
+      color: #c2410c;
+      background: linear-gradient(135deg, rgba(234, 88, 12, 0.1), rgba(251, 146, 60, 0.06));
+      border-color: rgba(234, 88, 12, 0.28);
+      box-shadow:
+        0 0 0 1px rgba(234, 88, 12, 0.04),
+        0 2px 8px rgba(234, 88, 12, 0.08),
+        0 0 18px rgba(234, 88, 12, 0.1);
+    }
+
+    [data-theme="light"] .cert-link.deeplearning:hover {
+      border-color: rgba(234, 88, 12, 0.42);
+      box-shadow:
+        0 0 0 1px rgba(234, 88, 12, 0.06),
+        0 4px 12px rgba(234, 88, 12, 0.12),
+        0 0 24px rgba(234, 88, 12, 0.14);
+    }
+
+    [data-theme="light"] .cert-link.google {
+      color: #6d28d9;
+      background: linear-gradient(135deg, rgba(109, 40, 217, 0.09), rgba(139, 92, 246, 0.05));
+      border-color: rgba(109, 40, 217, 0.26);
+      box-shadow:
+        0 0 0 1px rgba(109, 40, 217, 0.04),
+        0 2px 8px rgba(109, 40, 217, 0.08),
+        0 0 18px rgba(109, 40, 217, 0.1);
+    }
+
+    [data-theme="light"] .cert-link.google:hover {
+      border-color: rgba(109, 40, 217, 0.4);
+      box-shadow:
+        0 0 0 1px rgba(109, 40, 217, 0.06),
+        0 4px 12px rgba(109, 40, 217, 0.12),
+        0 0 24px rgba(109, 40, 217, 0.14);
     }
 
     @keyframes softGlow {
@@ -942,17 +1047,20 @@
               </svg>
               Download Resume PDF
             </a>
-            <div class="contact-pills">
-              <span class="contact-pill location">SF Bay Area</span>
-              <a href="tel:+12016734401" class="contact-pill phone">(201) 673‑4401</a>
-              <a href="mailto:arif.azim@gmail.com" class="contact-pill email">arif.azim@gmail.com</a>
-            </div>
           </div>
 
-          <div class="social-row">
+          <div class="contact-social-row">
+            <span class="contact-pill location">SF Bay Area</span>
+            <a href="tel:+12016734401" class="contact-pill phone">(201) 673‑4401</a>
+            <a href="mailto:arif.azim@gmail.com" class="contact-pill email">arif.azim@gmail.com</a>
             <a href="https://linkedin.com/in/arif-azim" class="social-link linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://github.com/arifazim" class="social-link github" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.kaggle.com/arif3012" class="social-link kaggle" target="_blank" rel="noopener noreferrer">Kaggle</a>
+            <a href="https://www.kaggle.com/competitions/vibecoding-agents-capstone-project/writeups/new-writeup-1783361580506" class="social-link kaggle" target="_blank" rel="noopener noreferrer">Kaggle</a>
+          </div>
+
+          <div class="cert-row">
+            <a href="https://www.coursera.org/account/accomplishments/verify/QQ2H60ZRZJBV" class="cert-link deeplearning" target="_blank" rel="noopener noreferrer">GenAI with LLM · DeepLearning.AI + AWS</a>
+            <a href="https://www.kaggle.com/certification/badges/arif3012/108" class="cert-link google" target="_blank" rel="noopener noreferrer">Agentic AI · Google Antigravity + GCP</a>
           </div>
         </header>
 
