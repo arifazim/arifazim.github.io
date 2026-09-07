@@ -515,6 +515,18 @@
       flex: 0 0 auto;
     }
   
+    .timeline-certs {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .timeline-certs {
+        grid-template-columns: 1fr;
+      }
+    }
     /* Career timeline */
   
     .timeline {
@@ -966,6 +978,7 @@
             </section>
 
             <!-- CAREER TIMELINE -->
+          <div class="timeline-certs">
             <section>
               <div class="section-label">Career Timeline</div>
               <div class="card">
@@ -1025,7 +1038,7 @@
             </section>
           </div>
         </div>
-
+        </div>
         <!-- FOOTER -->
         <footer>
           <div class="footer-left">
