@@ -1,444 +1,479 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arif Azim – Engineering Leader</title>
 
-  <!-- Fonts & Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
 
   <style>
     :root {
-      --bg: #eef5f8;
-      --bg-alt: #e7f0f4;
-      --card-bg: #fffdf8;
-  
-      --accent: #1f6f8b;
-      --accent-soft: #e5f1f4;
-      --accent-strong: #15566e;
-  
-      --highlight: #f4d35e;
-      --highlight-soft: #fff5c9;
-  
-      --text-main: #172b36;
-      --text-muted: #60727b;
-      --text-soft: #82919a;
-  
-      --border-subtle: #d7e2e6;
-      --border-strong: #b8cbd2;
-  
-      --danger: #b4534b;
-      --success: #357a61;
-  
-      --shadow-soft: 0 18px 45px rgba(37, 67, 79, 0.08);
-      --shadow-hover: 0 14px 30px rgba(37, 67, 79, 0.13);
-  
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --radius-sm: 9px;
-  
-      --max-width: 1120px;
+      --bg-dark: radial-gradient(circle at top left, #050816 0%, #02040b 40%, #000000 100%);
+      --bg-light: radial-gradient(circle at top left, #f5f7fb 0%, #e9edf7 40%, #ffffff 100%);
+      --text-dark: #f5f7fa;
+      --text-light: #111827;
+      --muted-dark: #b8c2d1;
+      --muted-light: #4b5563;
+      --accent: #4dd0ff;
+      --accent-strong: #7df9ff;
+      --accent-soft: rgba(77, 208, 255, 0.12);
+      --surface-dark: rgba(17, 24, 39, 0.85);
+      --surface-light: rgba(255, 255, 255, 0.9);
+      --border-dark: rgba(148, 163, 184, 0.35);
+      --border-light: rgba(148, 163, 184, 0.35);
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.65);
+      --shadow-hover: 0 32px 80px rgba(0, 0, 0, 0.85);
+      --max-width: 980px;
     }
-  
+
+    [data-theme="dark"] body {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    [data-theme="light"] body {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-  
+
     html {
       scroll-behavior: smooth;
     }
-  
+
     body {
-      font-family:
-        "Inter",
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-      background:
-        linear-gradient(
-          135deg,
-          #eef5f8 0%,
-          #f8fbfa 48%,
-          #fff8df 100%
-        );
-      color: var(--text-main);
-      line-height: 1.7;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.8;
       -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
-  
+
     a {
       color: var(--accent-strong);
       text-decoration: none;
-      transition:
-        color 0.2s ease,
-        border-color 0.2s ease;
+      font-weight: 500;
+      transition: color 0.2s ease, text-shadow 0.2s ease;
     }
-  
+
     a:hover {
-      color: #0c4357;
-      text-decoration: none;
+      text-shadow: 0 0 10px var(--accent-strong);
     }
-  
+
     .page {
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      padding: 3.5rem 1.5rem 4rem;
+      padding: 3rem 1.5rem 4rem;
+      position: relative;
     }
-  
+
+    .parallax-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(77, 208, 255, 0.18), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(125, 249, 255, 0.16), transparent 55%);
+      opacity: 0.9;
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+    }
+
     .shell {
       width: 100%;
       max-width: var(--max-width);
-      background: rgba(255, 253, 248, 0.88);
-      border: 1px solid rgba(184, 203, 210, 0.85);
-      border-radius: 26px;
+      border-radius: 30px;
       box-shadow: var(--shadow-soft);
       overflow: hidden;
       position: relative;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(22px);
+      border: 1px solid rgba(148, 163, 184, 0.35);
     }
-  
-    .shell::before {
+
+    [data-theme="dark"] .shell {
+      background: linear-gradient(135deg, rgba(17, 24, 39, 0.96), rgba(15, 23, 42, 0.98));
+    }
+
+    [data-theme="light"] .shell {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(249, 250, 251, 0.98));
+    }
+
+    .shell::before,
+    .shell::after {
       content: "";
       position: absolute;
-      inset: 0;
+      width: 180px;
+      height: 180px;
+      border-radius: 32px;
+      border: 1px solid rgba(125, 249, 255, 0.6);
+      box-shadow: 0 0 40px rgba(125, 249, 255, 0.4);
       pointer-events: none;
-      background:
-        radial-gradient(
-          circle at 100% 0%,
-          rgba(244, 211, 94, 0.2),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 0% 0%,
-          rgba(31, 111, 139, 0.08),
-          transparent 32%
-        );
+      z-index: -1;
     }
-  
+
+    .shell::before {
+      top: -40px;
+      left: -60px;
+    }
+
+    .shell::after {
+      bottom: -40px;
+      right: -60px;
+    }
+
     .content {
       position: relative;
       z-index: 1;
-      padding: 3rem 3.25rem 3.25rem;
+      padding: 2.75rem 3rem 3rem;
     }
-  
+
     @media (max-width: 768px) {
       .page {
-        padding: 1rem 0.75rem 2rem;
+        padding: 1.5rem 0.75rem 2.5rem;
       }
-  
+
       .shell {
-        border-radius: 18px;
+        border-radius: 22px;
       }
-  
+
       .content {
-        padding: 1.75rem 1.25rem 2rem;
+        padding: 2rem 1.5rem 2.25rem;
       }
     }
-  
+
+    /* Dark/Light toggle */
+    .theme-toggle {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.6rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.75rem;
+      cursor: pointer;
+      background: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    [data-theme="light"] .theme-toggle {
+      background: rgba(255, 255, 255, 0.9);
+      color: #111827;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55);
+    }
+
+    .theme-toggle-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #7df9ff 0%, #4dd0ff 40%, #0ea5e9 100%);
+      box-shadow: 0 0 12px rgba(125, 249, 255, 0.8);
+    }
+
     /* Header */
-  
     header {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
       margin-bottom: 2.75rem;
       padding-bottom: 1.75rem;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
     }
-  
+
     .header-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 2rem;
     }
-  
+
     .identity {
-      max-width: 650px;
+      max-width: 640px;
     }
-  
+
     .name {
-      font-size: clamp(2.6rem, 5vw, 4.7rem);
+      font-size: clamp(2.8rem, 5vw, 3.6rem);
       line-height: 1;
       font-weight: 700;
-      letter-spacing: -0.075em;
-      color: var(--text-main);
+      letter-spacing: -0.08em;
+      background: linear-gradient(135deg, #7df9ff 0%, #4dd0ff 40%, #7df9ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 1.2s ease;
     }
-  
+
     .title {
       margin-top: 0.9rem;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      color: var(--accent-strong);
       text-transform: uppercase;
       letter-spacing: 0.19em;
+      color: var(--accent-strong);
+      animation: slideIn 0.9s ease;
     }
-  
+
     .summary-chip {
       max-width: 620px;
       margin-top: 1.15rem;
       font-size: 1rem;
-      line-height: 1.75;
-      color: var(--text-muted);
+      line-height: 1.8;
+      color: var(--muted-dark);
     }
-  
+
+    [data-theme="light"] .summary-chip {
+      color: var(--muted-light);
+    }
+
     .summary-chip span {
-      color: var(--text-main);
+      color: inherit;
       font-weight: 600;
     }
-  
+
     .header-actions {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       gap: 0.9rem;
     }
-  
+
     .btn-primary {
       display: inline-flex;
       align-items: center;
       gap: 0.55rem;
-      padding: 0.75rem 1.15rem;
-      border: 1px solid var(--accent-strong);
-      border-radius: 8px;
-      background: var(--accent-strong);
-      color: #ffffff;
-      font-size: 0.76rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(125, 249, 255, 0.7);
+      background: radial-gradient(circle at 0% 0%, rgba(77, 208, 255, 0.3), rgba(15, 23, 42, 0.95));
+      color: #e5e7eb;
+      font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.09em;
       cursor: pointer;
-      transition:
-        background 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.65);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
-  
-    .btn-primary i {
-      color: var(--highlight);
-    }
-  
+
     .btn-primary:hover {
-      background: #0d465b;
-      color: #ffffff;
       transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(21, 86, 110, 0.18);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+      background: radial-gradient(circle at 0% 0%, rgba(125, 249, 255, 0.4), rgba(15, 23, 42, 0.98));
     }
-  
+
     .contact-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.65rem 1.25rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
+      font-size: 0.82rem;
+      color: var(--muted-dark);
     }
-  
+
+    [data-theme="light"] .contact-row {
+      color: var(--muted-light);
+    }
+
     .contact-item {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
     }
-  
-    .contact-item i {
-      font-size: 0.8rem;
-      color: var(--accent);
-    }
-  
+
     .contact-item a {
       border-bottom: 1px solid transparent;
     }
-  
+
     .contact-item a:hover {
-      border-bottom-color: var(--accent);
+      border-bottom-color: var(--accent-strong);
     }
-  
-    /* Section layout */
-  
-    .grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.25fr);
-      gap: 2.5rem;
-    }
-  
-    @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 0;
+
+    @media (max-width: 700px) {
+      .header-top {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .header-actions {
+        align-items: flex-start;
       }
     }
-  
+
+    /* Section layout */
     section {
       margin-bottom: 2.25rem;
     }
-  
+
     .section-label {
-      font-size: 0.7rem;
+      font-size: 0.78rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.2em;
       color: var(--accent-strong);
-      margin-bottom: 0.8rem;
-      display: flex;
+      margin-bottom: 0.9rem;
+      display: inline-flex;
       align-items: center;
       gap: 0.65rem;
+      position: relative;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-  
+
     .section-label::before {
       content: "";
-      width: 24px;
+      width: 26px;
       height: 3px;
-      background: var(--highlight);
-      border-radius: 99px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #7df9ff 0%, #4dd0ff 40%, #7df9ff 100%);
+      box-shadow: 0 0 16px rgba(125, 249, 255, 0.8);
     }
-  
+
+    .section-label.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .card {
-      background: rgba(255, 253, 248, 0.94);
-      border: 1px solid var(--border-subtle);
+      position: relative;
       border-radius: var(--radius-lg);
-      padding: 1.35rem 1.45rem;
-      box-shadow: 0 5px 18px rgba(37, 67, 79, 0.035);
+      padding: 1.4rem 1.5rem;
+      margin-bottom: 1.4rem;
+      transform-style: preserve-3d;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      border: 1px solid var(--border-dark);
+      background: linear-gradient(145deg, rgba(17, 24, 39, 0.96), rgba(15, 23, 42, 0.98));
+      box-shadow: var(--shadow-soft);
     }
-  
-    .card + .card {
-      margin-top: 1rem;
+
+    [data-theme="light"] .card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(249, 250, 251, 0.98));
+      border-color: var(--border-light);
     }
-  
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(125, 249, 255, 0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
     .card:hover {
-      border-color: var(--border-strong);
+      transform: translateY(-6px) rotateX(4deg) rotateY(-3deg);
+      box-shadow: var(--shadow-hover);
     }
-  
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 0.75rem;
-      margin-bottom: 0.45rem;
+
+    .card:hover::before {
+      opacity: 1;
     }
-  
-    .card-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-  
-    .card-meta {
-      font-size: 0.73rem;
-      color: var(--text-soft);
-      white-space: nowrap;
-    }
-  
-    .card-body {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-  
-    /* Executive summary */
-  
+
     .exec-summary {
-      font-size: 0.94rem;
-      line-height: 1.85;
-      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.9;
+      color: var(--muted-dark);
     }
-  
+
+    [data-theme="light"] .exec-summary {
+      color: var(--muted-light);
+    }
+
     .exec-summary strong {
-      color: var(--text-main);
       font-weight: 650;
+      color: inherit;
     }
-  
-    /* Technical core */
-  
-    .tech-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 1.35rem 1.25rem;
-      font-size: 0.84rem;
-    }
-  
-    @media (max-width: 768px) {
-      .tech-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-  
-    .tech-block-title {
-      font-size: 0.7rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent-strong);
-      margin-bottom: 0.35rem;
-    }
-  
-    .tech-block-body {
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-  
-    /* Wins / impact */
-  
+
     .impact-list {
       display: grid;
       gap: 0.9rem;
-      font-size: 0.86rem;
+      font-size: 0.9rem;
+      color: var(--muted-dark);
     }
-  
+
+    [data-theme="light"] .impact-list {
+      color: var(--muted-light);
+    }
+
     .impact-item {
       position: relative;
-      padding-left: 1.05rem;
-      color: var(--text-muted);
-      line-height: 1.65;
+      padding-left: 1.1rem;
     }
-  
+
     .impact-item::before {
       content: "";
       position: absolute;
       left: 0;
-      top: 0.58rem;
-      width: 5px;
-      height: 5px;
+      top: 0.6rem;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      background: var(--highlight);
-      box-shadow: 0 0 0 3px var(--highlight-soft);
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
     }
-  
+
     .impact-item strong {
-      color: var(--text-main);
-      font-weight: 700;
+      font-weight: 650;
+      color: inherit;
     }
-  
-    /* Signature projects */
-  
+
     .project {
       position: relative;
-      border: 1px solid var(--border-subtle);
-      border-left: 4px solid var(--accent);
       border-radius: var(--radius-md);
-      background: rgba(255, 253, 248, 0.78);
-      padding: 1.1rem 1.2rem;
-      font-size: 0.86rem;
-      transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.2s ease;
+      padding: 1.2rem 1.3rem;
+      margin-bottom: 1rem;
+      transform-style: preserve-3d;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      border: 1px solid var(--border-dark);
+      background: linear-gradient(145deg, rgba(17, 24, 39, 0.94), rgba(15, 23, 42, 0.98));
+      box-shadow: var(--shadow-soft);
     }
-  
-    .project + .project {
-      margin-top: 0.85rem;
+
+    [data-theme="light"] .project {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(249, 250, 251, 0.98));
+      border-color: var(--border-light);
     }
-  
+
+    .project::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(125, 249, 255, 0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
     .project:hover {
-      border-color: var(--accent);
+      transform: translateY(-6px) rotateX(4deg) rotateY(-3deg);
       box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
     }
-  
+
+    .project:hover::before {
+      opacity: 1;
+    }
+
     .project-title-row {
       display: flex;
       justify-content: space-between;
@@ -446,114 +481,84 @@
       gap: 0.75rem;
       margin-bottom: 0.35rem;
     }
-  
+
     .project-title {
-      font-weight: 750;
-      font-size: 0.92rem;
-      color: var(--text-main);
-    }
-  
-    .project-meta {
-      font-size: 0.72rem;
-      color: var(--accent-strong);
-      white-space: nowrap;
-      font-weight: 600;
-    }
-  
-    .project-line {
-      margin-top: 0.2rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-  
-    .project-line span {
       font-weight: 700;
-      color: var(--text-main);
-    }
-  
-    /* Architecture gallery */
-  
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.7rem;
-      font-size: 0.78rem;
-    }
-  
-    @media (max-width: 768px) {
-      .gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-  
-    .gallery-item {
-      min-height: 64px;
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-sm);
-      background: var(--bg-alt);
-      padding: 0.7rem;
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      color: var(--text-muted);
-      line-height: 1.35;
-      transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        color 0.2s ease;
-    }
-  
-    .gallery-item:hover {
-      background: var(--highlight-soft);
-      border-color: #e7cf67;
-      color: var(--text-main);
-    }
-  
-    .gallery-item i {
-      color: var(--accent);
-      font-size: 0.85rem;
-      flex: 0 0 auto;
-    }
-  
-    .timeline-certs {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 1rem;
-      align-items: start;
+      font-size: 0.96rem;
     }
 
-    @media (max-width: 768px) {
+    .project-meta {
+      font-size: 0.78rem;
+      color: var(--accent-strong);
+      white-space: nowrap;
+    }
+
+    .project-line {
+      margin-top: 0.2rem;
+      font-size: 0.9rem;
+      color: var(--muted-dark);
+    }
+
+    [data-theme="light"] .project-line {
+      color: var(--muted-light);
+    }
+
+    .project-line span {
+      font-weight: 650;
+    }
+
+    /* Columns for Career + Education */
+    .timeline-certs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    .timeline-certs::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, #7df9ff 0%, #4dd0ff 50%, #7df9ff 100%);
+      border-radius: 999px;
+      box-shadow: 0 0 22px rgba(125, 249, 255, 0.9);
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 900px) {
       .timeline-certs {
         grid-template-columns: 1fr;
       }
+      .timeline-certs::before {
+        display: none;
+      }
     }
-    /* Career timeline */
-  
+
     .timeline {
       position: relative;
       padding-top: 0.4rem;
-      font-size: 0.84rem;
+      font-size: 0.86rem;
     }
-  
+
     .timeline-track {
       position: absolute;
       left: 0.27rem;
       top: 0;
       bottom: 0.45rem;
       width: 1px;
-      background: var(--border-strong);
+      background: rgba(148, 163, 184, 0.6);
     }
-  
+
     .timeline-item {
       position: relative;
       padding-left: 1.25rem;
       margin-bottom: 0.95rem;
     }
-  
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-  
+
     .timeline-item::before {
       content: "";
       position: absolute;
@@ -562,105 +567,62 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--card-bg);
+      background: rgba(17, 24, 39, 1);
       border: 2px solid var(--accent);
     }
-  
-    .timeline-item:first-of-type::before {
-      background: var(--highlight);
-      border-color: var(--highlight);
-    }
-  
+
     .timeline-role {
       font-weight: 700;
-      color: var(--text-main);
-      line-height: 1.45;
+      line-height: 1.5;
     }
-  
+
     .timeline-meta {
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      margin-top: 0.15rem;
+      font-size: 0.8rem;
+      color: var(--muted-dark);
     }
-  
-    /* Footer */
-  
+
+    [data-theme="light"] .timeline-meta {
+      color: var(--muted-light);
+    }
+
     footer {
       margin-top: 2.5rem;
       padding-top: 1.2rem;
-      border-top: 1px solid var(--border-subtle);
-      font-size: 0.75rem;
-      color: var(--text-muted);
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.8rem;
+      color: var(--muted-dark);
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 0.75rem;
     }
-  
-    .footer-left {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
+
+    [data-theme="light"] footer {
+      color: var(--muted-light);
     }
-  
-    .footer-left i {
-      color: var(--accent);
-      font-size: 0.75rem;
-    }
-  
-    .footer-right {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.7rem;
-      color: var(--text-soft);
-    }
-  
+
     @media (max-width: 700px) {
-      .header-top {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-  
-      .header-actions {
-        width: 100%;
-        align-items: flex-start;
-      }
-  
-      .contact-row {
-        gap: 0.55rem 1rem;
-      }
-  
-      .name {
-        font-size: 3rem;
-      }
-  
-      .title {
-        line-height: 1.7;
-      }
-  
-      .project-title-row {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 0.15rem;
-      }
-  
-      .project-meta {
-        white-space: normal;
-      }
-  
       footer {
-        align-items: flex-start;
         flex-direction: column;
+        align-items: flex-start;
       }
     }
-  
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-18px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
       }
-  
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         transition: none !important;
         animation: none !important;
       }
@@ -668,325 +630,252 @@
   </style>
 </head>
 <body>
+  <div class="parallax-layer"></div>
   <div class="page">
     <div class="shell">
+      <button class="theme-toggle" id="themeToggle">
+        <div class="theme-toggle-icon"></div>
+        <span>Toggle theme</span>
+      </button>
       <div class="content">
         <!-- HEADER -->
         <header>
           <div class="header-top">
             <div class="identity">
               <div class="name">Arif Azim</div>
-              <div class="title">ENGINEERING LEADER · PLATFORM · AI‑NATIVE INFRASTRUCTURE</div>
+              <div class="title">Engineering Leader | Platform Engineering | AI Infrastructure</div>
               <div class="summary-chip">
-                <span>Distributed systems, cloud platforms, agentic AI runtimes, and forward‑deployed engineering</span> for high‑scale, compliant production environments.
+                I build distributed systems, cloud platforms, developer infrastructure, and production AI systems.<br /><br />
+                My work sits at the intersection of engineering leadership and hands-on architecture. I have built backend platforms, AI and RAG systems, agent runtimes, developer tooling, and cloud infrastructure used in large, regulated environments.<br /><br />
+                I have led engineering teams across the US, India, Ukraine, and Latin America, and I still spend plenty of time in the code, architecture diagrams, logs, and production systems.
               </div>
             </div>
             <div class="header-actions">
-              <a
-                href="http://tiny.cc/a1x9101"
-                class="btn-primary"
-                target="_blank"
-                rel="noopener"
-              >
-                <i class="fas fa-file-pdf"></i>
-                <span>Download Resume PDF</span>
+              <a href="http://tiny.cc/a1x9101" class="btn-primary" target="_blank" rel="noopener">
+                <span>Resume PDF</span>
               </a>
               <div class="contact-row">
                 <div class="contact-item">
-                  <i class="fas fa-location-dot"></i>
                   <span>SF Bay Area</span>
-                </div>
-                <div class="contact-item">
-                  <i class="fas fa-phone"></i>
-                  <a href="tel:2016734401">(201) 673‑4401</a>
-                </div>
-                <div class="contact-item">
-                  <i class="fas fa-envelope"></i>
-                  <a href="mailto:arif.azim@gmail.com">arif.azim@gmail.com</a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="contact-row" style="margin-top: 0.35rem;">
+          <div class="contact-row" style="margin-top: 0.75rem;">
             <div class="contact-item">
-              <i class="fab fa-linkedin"></i>
-              <a href="https://linkedin.com/in/arif-azim" target="_blank" rel="noopener">linkedin.com/in/arif-azim</a>
+              <a href="http://tiny.cc/a1x9101" target="_blank" rel="noopener">Resume</a>
             </div>
             <div class="contact-item">
-              <i class="fab fa-github"></i>
-              <a href="https://github.com/arifazim" target="_blank" rel="noopener">github.com/arifazim</a>
+              <a href="https://linkedin.com/in/arif-azim" target="_blank" rel="noopener">LinkedIn</a>
             </div>
             <div class="contact-item">
-              <i class="fas fa-database"></i>
-              <a href="https://www.kaggle.com/arif3012" target="_blank" rel="noopener">kaggle.com/arif3012</a>
+              <a href="https://github.com/arifazim" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <div class="contact-item">
+              <a href="https://www.kaggle.com/arif3012" target="_blank" rel="noopener">Kaggle</a>
             </div>
           </div>
         </header>
 
-        <div class="grid">
-          <!-- LEFT COLUMN -->
-          <div>
-            <!-- EXECUTIVE SUMMARY -->
-            <section>
-              <div class="section-label">Executive Summary</div>
-              <div class="card">
-                <div class="exec-summary">
-                  Engineering leader specializing in <strong>distributed systems, cloud platforms, AI‑native infrastructure, and forward‑deployed engineering</strong>. I build high‑scale backend systems, agentic runtimes, and developer platforms that accelerate delivery, improve reliability, and reduce cost. I’ve led distributed teams across US, LatAm, India, and Ukraine, shipping production systems under DOJ/HIPAA constraints and driving multimillion‑dollar savings through platform modernization and AI automation. My work blends deep technical architecture with hands‑on execution across LLMOps, RAG pipelines, agentic orchestration, and secure, department‑scoped data access.
-                </div>
-              </div>
-            </section>
+        <!-- WHAT I BUILD -->
+        <section>
+          <div class="section-label">What I Build</div>
+          <div class="card">
+            <div class="exec-summary">
+              Most of my recent work has been around production AI and the infrastructure underneath it.<br /><br />
+              I have built hybrid RAG systems using FAISS, BM25, reranking, grounding checks, and evaluation pipelines. One of these systems now handles more than 10,000 sessions a day and helped reduce support costs by about $1.3M a year. Resolution rates went from 42% to 68%, while CSAT moved from 3.6 to 8.2.<br /><br />
+              I built a LangGraph routing agent for high-volume support workflows, with intent routing, guardrails, retry budgets, semantic caching, and LangSmith tracing. It reduced escalations by 65% across more than 8,000 sessions a day, with task completion above 99%.<br /><br />
+              I also built an evaluation system around LLM-as-judge scoring, grounding checks, safety tests, and CI/CD gates. The goal was simple. Catch bad model behavior before it reaches production. Evaluation time dropped by about 70%, and the pipeline caught three regressions before release.<br /><br />
+              Another project involved automated document redaction for public-sector workloads. The system processes more than 50,000 documents a month using AWS Textract, Comprehend, custom NLP, and multiple quality checks. It cut manual audit work by about 80%.<br /><br />
+              There is a fair amount of infrastructure behind all of this. Azure AI Foundry, AWS Bedrock, Azure Search, PostgreSQL, containers, CI/CD, observability, APIs, authentication, access control, and the usual collection of things that become very important once an AI prototype has to survive real users.
+            </div>
+          </div>
+        </section>
 
-            <!-- LEADERSHIP IMPACT -->
-            <section>
-              <div class="section-label">Leadership Impact</div>
-              <div class="card">
-                <div class="impact-list">
-                  <div class="impact-item">
-                    <strong>$1.3M/year support cost reduction</strong> via hybrid‑RAG platform (FAISS + BM25 + reranker + grounding checks). Resolution 42% → 68%, CSAT 3.6 → 8.2, 10K+ daily sessions, sub‑2s P99.
-                  </div>
-                  <div class="impact-item">
-                    <strong>$2.8M/year automation savings</strong> at Coupa through backend platform services adopted across enterprise integrations.
-                  </div>
-                  <div class="impact-item">
-                    <strong>65% fewer escalations</strong> using LangGraph routing agent with guardrails, retry budgets, semantic caching, and LangSmith traces (8K+ sessions/day, 99%+ task completion).
-                  </div>
-                  <div class="impact-item">
-                    <strong>Eval cycle time cut 70%</strong> by embedding LLM‑as‑judge harnesses into CI/CD as hard gates on factuality, safety, grounding, and latency.
-                  </div>
-                  <div class="impact-item">
-                    <strong>80% reduction in manual audit workload</strong> with DOJ/HIPAA‑compliant AI redaction pipeline (Textract + Comprehend + custom NLP), 50K+ docs/month.
-                  </div>
-                  <div class="impact-item">
-                    <strong>RBAC‑based RAG on Azure Search</strong> with multi‑agent orchestration to automate document collection and enforce department‑wise access controls, ensuring data is only accessible to authorized roles.
-                  </div>
-                  <div class="impact-item">
-                    <strong>8‑pass redaction platform</strong> on Azure Foundry and AWS Bedrock handling variable PDF formats, OCR outputs, images, and media files to consistently remove PII across agencies and departments.
-                  </div>
-                  <div class="impact-item">
-                    <strong>Scaled teams from 7 → 15 engineers</strong> across US, India, Ukraine, and LatAm; established hiring bar, engineering ladder, and incident response standards.
-                  </div>
-                  <div class="impact-item">
-                    <strong>Micro‑frontend modernization</strong> at Coupa eliminating deployment bottlenecks and merge conflicts across product teams.
-                  </div>
-                </div>
-              </div>
-            </section>
+        <!-- ENGINEERING LEADERSHIP -->
+        <section>
+          <div class="section-label">Engineering Leadership</div>
+          <div class="card">
+            <div class="exec-summary">
+              I have managed teams ranging from 7 to 15 engineers across several countries.<br /><br />
+              That includes hiring, technical direction, roadmap planning, architecture reviews, mentoring, incident response, and working directly with product and business leaders. I care about the engineering system around the team as much as the technology itself. Good engineers need clear ownership, reasonable standards, fast feedback, and enough room to make decisions.<br /><br />
+              At Coupa, I led platform engineering work across enterprise integrations and backend services. Platform changes contributed to roughly $2.8M a year in automation savings. I also worked on micro-frontend and GraphQL modernization, reducing deployment friction and the merge conflicts that had become a problem across product teams.<br /><br />
+              Earlier roles covered backend systems, distributed services, cloud infrastructure, and large-scale enterprise software.
+            </div>
+          </div>
+        </section>
 
-            <!-- SIGNATURE PROJECTS -->
-            <section>
-              <div class="section-label">Signature Projects</div>
+        <!-- SELECTED PROJECTS -->
+        <section>
+          <div class="section-label">Selected Projects</div>
 
-              <div class="project">
-                <div class="project-title-row">
-                  <div class="project-title">Hybrid‑RAG Support Platform</div>
-                  <div class="project-meta">ITD · Public Sector</div>
-                </div>
-                <div class="project-line"><span>Problem:</span> High support cost, slow resolution, inconsistent quality.</div>
-                <div class="project-line"><span>Solution:</span> Hybrid retrieval (FAISS + BM25), reranking, grounding checks, drift monitoring, LLM‑as‑judge scoring.</div>
-                <div class="project-line"><span>Impact:</span> Resolution 42% → 68%, CSAT 3.6 → 8.2, $1.3M/year saved, 10K+ daily sessions.</div>
-              </div>
-
-              <div class="project">
-                <div class="project-title-row">
-                  <div class="project-title">LangGraph Routing Agent</div>
-                  <div class="project-meta">ITD</div>
-                </div>
-                <div class="project-line"><span>Problem:</span> High escalation volume and inconsistent task routing.</div>
-                <div class="project-line"><span>Solution:</span> Multi‑intent agent with guardrails, retry budgets, semantic caching, LangSmith traces.</div>
-                <div class="project-line"><span>Impact:</span> 65% fewer escalations, 8K+ sessions/day, 99%+ task completion.</div>
-              </div>
-
-              <div class="project">
-                <div class="project-title-row">
-                  <div class="project-title">LLMOps Evaluation Platform</div>
-                  <div class="project-meta">ITD</div>
-                </div>
-                <div class="project-line"><span>Problem:</span> Silent regressions and slow evaluation cycles.</div>
-                <div class="project-line"><span>Solution:</span> LLM‑as‑judge calibrated to &lt;5% human disagreement, grounding validators, safety suites, CI/CD gates.</div>
-                <div class="project-line"><span>Impact:</span> 70% faster eval cycles, 3 regressions caught pre‑production.</div>
-              </div>
-
-              <div class="project">
-                <div class="project-title-row">
-                  <div class="project-title">AI Redaction Pipeline</div>
-                  <div class="project-meta">Public Sector</div>
-                </div>
-                <div class="project-line"><span>Problem:</span> Manual redaction workload under DOJ/HIPAA constraints.</div>
-                <div class="project-line"><span>Solution:</span> Textract + Comprehend + custom NLP post‑processing; automated quality gates.</div>
-                <div class="project-line"><span>Impact:</span> 80% reduction in manual audit work, 50K+ docs/month.</div>
-              </div>
-
-              <div class="project">
-                <div class="project-title-row">
-                  <div class="project-title">RBAC‑Based RAG & Multi‑Agent Access</div>
-                  <div class="project-meta">Forward‑Deployed · Azure</div>
-                </div>
-                <div class="project-line"><span>Problem:</span> Fragmented document access and inconsistent data visibility across departments.</div>
-                <div class="project-line"><span>Solution:</span> RBAC‑aware RAG layer on Azure Search with multi‑agent orchestration to ingest, classify, and expose documents only to authorized departments and roles.</div>
-                <div class="project-line"><span>Impact:</span> Automated document collection, reduced manual routing, and strict department‑wise access boundaries for sensitive data.</div>
-              </div>
-
-              <div class="project">
-                <div class="project-title-row">
-                  <div class="project-title">8‑Pass Redaction Platform</div>
-                  <div class="project-meta">Forward‑Deployed · Azure & AWS</div>
-                </div>
-                <div class="project-line"><span>Problem:</span> PII scattered across heterogeneous formats (PDF, OCR, images, media) across agencies.</div>
-                <div class="project-line"><span>Solution:</span> Multi‑pass redaction pipeline on Azure Foundry and AWS Bedrock handling variable PDFs, OCR outputs, image files, and media streams with layered rules and model‑based detection.</div>
-                <div class="project-line"><span>Impact:</span> Consistent PII removal across formats, reduced manual review, and standardized redaction for cross‑agency workflows.</div>
-              </div>
-
-              <div class="project">
-                <div class="project-title-row">
-                  <div class="project-title">Automation Platform</div>
-                  <div class="project-meta">Coupa</div>
-                </div>
-                <div class="project-line"><span>Problem:</span> Enterprise integrations required repetitive manual workflows.</div>
-                <div class="project-line"><span>Solution:</span> Backend automation services, platform APIs, micro‑frontend decomposition.</div>
-                <div class="project-line"><span>Impact:</span> $2.8M/year savings, major reduction in deployment conflicts.</div>
-              </div>
-            </section>
+          <div class="project">
+            <div class="project-title-row">
+              <div class="project-title">Hybrid RAG Support Platform</div>
+              <div class="project-meta">Public Sector</div>
+            </div>
+            <div class="project-line">
+              A production support platform combining dense and sparse retrieval, reranking, grounding validation, drift monitoring, and LLM evaluation.
+            </div>
+            <div class="project-line">
+              10K+ daily sessions · 42% → 68% resolution · CSAT 3.6 → 8.2 · $1.3M/year support savings · Sub-2-second P99
+            </div>
           </div>
 
-          <!-- RIGHT COLUMN -->
-          <div>
-            <!-- TECHNICAL CORE -->
-            <section>
-              <div class="section-label">Technical Core</div>
-              <div class="card">
-                <div class="tech-grid">
-                  <div>
-                    <div class="tech-block-title">Distributed Systems & Backend</div>
-                    <div class="tech-block-body">
-                      Python, Node.js, Go (learning), REST APIs, microservices, event‑driven architecture, PostgreSQL, schema design, idempotency, rate limiting, circuit breakers.
-                    </div>
-                  </div>
-                  <div>
-                    <div class="tech-block-title">Cloud & Infrastructure</div>
-                    <div class="tech-block-body">
-                      AWS (Bedrock, SageMaker, Lambda, Step Functions, Textract, ECS, RDS), Azure AI Foundry, Azure Search, GCP, Terraform, Docker, Ansible, hybrid cloud, Vercel, Render, Railway.
-                    </div>
-                  </div>
-                  <div>
-                    <div class="tech-block-title">AI / LLM Systems</div>
-                    <div class="tech-block-body">
-                      Hybrid RAG (FAISS, Qdrant, Chroma, BM25), reranking, grounding validation, drift monitoring, LLM‑as‑judge, evaluation harnesses, safety test suites, vLLM, OpenRouter, Ollama.
-                    </div>
-                  </div>
-                  <div>
-                    <div class="tech-block-title">Agentic Orchestration</div>
-                    <div class="tech-block-body">
-                      LangGraph, LangChain, LangMem, A2A, ADK, MCP, tool‑calling agents, guardrails, retry budgets, semantic caching, circuit breakers, workflow orchestration.
-                    </div>
-                  </div>
-                  <div>
-                    <div class="tech-block-title">Platform Engineering</div>
-                    <div class="tech-block-body">
-                      Internal developer platforms, CI/CD pipelines, micro‑frontends, observability, SLOs, runtime standards, incident response, API reliability, spec‑driven development.
-                    </div>
-                  </div>
-                  <div>
-                    <div class="tech-block-title">Leadership</div>
-                    <div class="tech-block-body">
-                      Hiring, coaching, OKRs, roadmap planning, cross‑functional alignment, executive communication, distributed teams, incident command.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+          <div class="project">
+            <div class="project-title-row">
+              <div class="project-title">LangGraph Routing Agent</div>
+            </div>
+            <div class="project-line">
+              A multi-intent routing system that sends requests through specialist workflows and escalates to people when needed.
+            </div>
+            <div class="project-line">
+              The system uses guardrails, retry budgets, semantic caching, and LangSmith tracing.
+            </div>
+            <div class="project-line">
+              65% fewer escalations · 8K+ sessions/day · 99%+ task completion
+            </div>
+          </div>
 
-            <!-- AI / AGENTIC WORK -->
-            <section>
-              <div class="section-label">AI / Agentic Work</div>
-              <div class="card">
-                <div class="impact-list">
-                  <div class="impact-item">
-                    LangGraph multi‑intent routing agent (triage → specialist → human escalation) with guardrails and retry budgets.
-                  </div>
-                  <div class="impact-item">
-                    Semantic caching reducing LLM calls by <strong>35%</strong> across production workflows.
-                  </div>
-                  <div class="impact-item">
-                    LLM‑as‑judge scoring calibrated to &lt;5% human disagreement for factuality and grounding.
-                  </div>
-                  <div class="impact-item">
-                    Hybrid retrieval pipelines powering 10K+ daily sessions with DOJ/HIPAA‑compliant workloads.
-                  </div>
-                  <div class="impact-item">
-                    Drift monitoring on live traffic with statistical alerting on quality degradation and latency spikes.
-                  </div>
-                  <div class="impact-item">
-                    Safety evaluation suites for multilingual and domain‑specific workloads (healthcare, legal, logistics).
-                  </div>
-                </div>
-              </div>
-            </section>
+          <div class="project">
+            <div class="project-title-row">
+              <div class="project-title">LLM Evaluation Platform</div>
+            </div>
+            <div class="project-line">
+              An evaluation pipeline built around LLM-as-judge scoring, human calibration, grounding validation, safety tests, and CI/CD gates.
+            </div>
+            <div class="project-line">
+              The scoring system was calibrated to less than 5% disagreement with human evaluation.
+            </div>
+            <div class="project-line">
+              Evaluation cycle time dropped 70%, and three regressions were caught before production.
+            </div>
+          </div>
 
-            <!-- FORWARD‑DEPLOYED ENGINEERING -->
-            <section>
-              <div class="section-label">Forward‑Deployed Engineering</div>
-              <div class="card">
-                <div class="impact-list">
-                  <div class="impact-item">
-                    Designed RBAC‑aware RAG systems on top of Azure Search and multi‑agent orchestration to automate document ingestion, classification, and department‑scoped access, ensuring only authorized users can query sensitive data.
-                  </div>
-                  <div class="impact-item">
-                    Implemented department‑wise access controls integrated with existing auth systems so agents and retrieval layers respect organizational boundaries and compliance requirements.
-                  </div>
-                  <div class="impact-item">
-                    Built an 8‑pass redaction platform on Azure AI Foundry and AWS Bedrock to handle variable PDF layouts, OCR outputs, image files, and media streams, applying layered PII detection and removal across agencies and departments.
-                  </div>
-                  <div class="impact-item">
-                    Tuned redaction flows for different regulatory contexts (DOJ, HIPAA, public‑sector policies), balancing recall of sensitive entities with minimal over‑redaction to preserve document utility.
-                  </div>
-                </div>
-              </div>
-            </section>
+          <div class="project">
+            <div class="project-title-row">
+              <div class="project-title">AI Redaction Pipeline</div>
+            </div>
+            <div class="project-line">
+              A document processing pipeline built for large public-sector workloads.
+            </div>
+            <div class="project-line">
+              It combines Textract, Comprehend, custom NLP processing, and automated quality checks to identify and remove sensitive information from documents.
+            </div>
+            <div class="project-line">
+              50K+ documents/month · 80% reduction in manual audit work
+            </div>
+          </div>
 
-            <!-- ARCHITECTURE DIAGRAMS -->
-            <section>
-              <div class="section-label">Architecture Diagrams</div>
-              <div class="card">
-                <div class="gallery">
-                  <div class="gallery-item">
-                    <i class="fas fa-diagram-project"></i>
-                    <span>Distributed system blueprint</span>
-                  </div>
-                  <div class="gallery-item">
-                    <i class="fas fa-network-wired"></i>
-                    <span>RAG pipeline architecture</span>
-                  </div>
-                  <div class="gallery-item">
-                    <i class="fas fa-robot"></i>
-                    <span>Agentic orchestration flows</span>
-                  </div>
-                  <div class="gallery-item">
-                    <i class="fas fa-code-branch"></i>
-                    <span>CI/CD eval gates</span>
-                  </div>
-                  <div class="gallery-item">
-                    <i class="fas fa-cloud"></i>
-                    <span>Cloud deployment topology</span>
-                  </div>
-                  <div class="gallery-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Compliance & safety patterns</span>
-                  </div>
-                </div>
-              </div>
-            </section>
+          <div class="project">
+            <div class="project-title-row">
+              <div class="project-title">RBAC RAG and Multi-Agent Access</div>
+            </div>
+            <div class="project-line">
+              A department-aware RAG system built on Azure Search.
+            </div>
+            <div class="project-line">
+              Documents are collected and classified through automated workflows, while retrieval follows existing organizational permissions. Agents cannot simply retrieve everything that exists in the index. Access follows the user's department and role.
+            </div>
+          </div>
 
-            <!-- CAREER TIMELINE -->
+          <div class="project">
+            <div class="project-title-row">
+              <div class="project-title">8-Pass Redaction Platform</div>
+            </div>
+            <div class="project-line">
+              A multi-stage redaction system running across Azure AI Foundry and AWS Bedrock.
+            </div>
+            <div class="project-line">
+              It handles inconsistent PDF layouts, OCR output, images, and other media formats. Different passes look for different classes of sensitive information, with additional checks to reduce missed entities and unnecessary redaction.
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-title-row">
+              <div class="project-title">Enterprise Automation Platform</div>
+              <div class="project-meta">Coupa</div>
+            </div>
+            <div class="project-line">
+              Backend automation services and platform APIs replaced repetitive integration work and helped save approximately $2.8M per year.
+            </div>
+            <div class="project-line">
+              I also worked on micro-frontend decomposition and platform changes that reduced deployment conflicts between product teams.
+            </div>
+          </div>
+        </section>
+
+        <!-- THE TECHNICAL SIDE -->
+        <section>
+          <div class="section-label">The Technical Side</div>
+          <div class="card">
+            <div class="exec-summary">
+              I spend most of my time around Python, Node.js, REST APIs, microservices, PostgreSQL, event-driven systems, and cloud infrastructure. I have also worked with Go and continue to deepen it.<br /><br />
+              On AWS, that includes Bedrock, SageMaker, Lambda, Step Functions, Textract, ECS, and RDS.<br /><br />
+              On Azure, my work includes Azure AI Foundry, Azure Search, identity and access control, and cloud-native application infrastructure. I have also worked across GCP and hybrid cloud environments.<br /><br />
+              For AI systems, I work with FAISS, Qdrant, Chroma, BM25, rerankers, grounding validation, evaluation harnesses, drift monitoring, vLLM, OpenRouter, and Ollama.<br /><br />
+              For agents, I use LangGraph and LangChain, along with MCP, A2A, ADK, tool calling, retry policies, semantic caching, and workflow orchestration.<br /><br />
+              The less glamorous parts matter too. Idempotency. Rate limits. Circuit breakers. Observability. SLOs. Deployment pipelines. Authentication. Incident response. Database schemas. The stuff that tends to matter most after the demo is over.
+            </div>
+          </div>
+        </section>
+
+        <!-- RECENT AI WORK -->
+        <section>
+          <div class="section-label">Recent AI Work</div>
+          <div class="card">
+            <div class="exec-summary">
+              I built a LangGraph multi-intent routing agent that moves requests through triage, specialist handling, and human escalation.<br /><br />
+              Semantic caching reduced LLM calls by about 35% across production workflows.<br /><br />
+              I built LLM-as-judge scoring calibrated against human reviewers for factuality and grounding.<br /><br />
+              I have worked on hybrid retrieval systems serving more than 10,000 daily sessions and handling regulated workloads.<br /><br />
+              I have added statistical monitoring to live AI traffic to catch changes in response quality and latency.<br /><br />
+              I have also built safety evaluation suites for multilingual and domain-specific applications, including healthcare, legal, and logistics workloads.
+            </div>
+          </div>
+        </section>
+
+        <!-- FORWARD-DEPLOYED ENGINEERING -->
+        <section>
+          <div class="section-label">Forward-Deployed Engineering</div>
+          <div class="card">
+            <div class="exec-summary">
+              Some of my recent work has been close to the customer and the actual operating environment.<br /><br />
+              One example was an Azure Search RAG system with department-level permissions and multi-agent document workflows. The system collects and classifies documents, then limits retrieval according to existing authorization boundaries.<br /><br />
+              Another was an eight-pass redaction platform spanning Azure AI Foundry and AWS Bedrock. The challenge was not simply detecting PII. Documents arrived in different formats, with different OCR quality, layouts, images, and regulatory requirements. The system had to deal with that mess without making every workflow a custom project.<br /><br />
+              That work included DOJ, HIPAA, and public-sector requirements, with the usual tradeoff between finding every sensitive entity and avoiding unnecessary redaction.
+            </div>
+          </div>
+        </section>
+
+        <!-- ARCHITECTURE -->
+        <section>
+          <div class="section-label">Architecture</div>
+          <div class="card">
+            <div class="exec-summary">
+              I keep architecture diagrams for the systems I build, including:<br /><br />
+              Distributed system designs<br />
+              RAG pipelines<br />
+              Agent workflows<br />
+              CI/CD evaluation gates<br />
+              Cloud deployment patterns<br />
+              Identity and access boundaries<br />
+              Compliance and safety controls
+            </div>
+          </div>
+        </section>
+
+        <!-- CAREER + EDUCATION -->
+        <section>
+          <div class="section-label">Career & Education</div>
           <div class="timeline-certs">
-            <section>
-              <div class="section-label">Career Timeline</div>
+            <div>
               <div class="card">
                 <div class="timeline">
                   <div class="timeline-track"></div>
-
                   <div class="timeline-item">
-                    <div class="timeline-role">Engineering Leader, AI Platform & Infra</div>
+                    <div class="timeline-role">Engineering Leader, AI Platform & Infrastructure</div>
                     <div class="timeline-meta">ITD · 2024–Present</div>
                   </div>
                   <div class="timeline-item">
@@ -1006,51 +895,84 @@
                     <div class="timeline-meta">NetScout · 2016–2021</div>
                   </div>
                   <div class="timeline-item">
-                    <div class="timeline-role">Backend & Distributed Systems Roles</div>
-                    <div class="timeline-meta">Roche, Tesla, Gilead, ThermoFisher, Siemens Health, Lehman Brothers, Unilever · 2006–2016</div>
+                    <div class="timeline-role">Backend and Distributed Systems Engineering</div>
+                    <div class="timeline-meta">Roche, Tesla, Gilead, Thermo Fisher, Siemens Health, Lehman Brothers, Unilever · 2006–2016</div>
                   </div>
                 </div>
               </div>
-            </section>
-
-            <!-- CERTS & EDUCATION -->
-            <section>
-              <div class="section-label">Certifications & Education</div>
+            </div>
+            <div>
               <div class="card">
-                <div class="impact-list">
-                  <div class="impact-item">
-                    Generative AI with Large Language Models – DeepLearning.AI + AWS.
-                  </div>
-                  <div class="impact-item">
-                    Agentic AI through Google Antigravity and GCP.
-                  </div>
-                  <div class="impact-item">
-                    Databricks Generative AI Engineer Associate (in progress).
-                  </div>
-                  <div class="impact-item">
-                    AWS ML Engineer Associate MLA‑C01 (in progress).
-                  </div>
-                  <div class="impact-item">
-                    MS, Information Technology – Manipal University (SMU), India, 2003.
-                  </div>
+                <div class="exec-summary">
+                  <strong>Education and Certifications</strong><br /><br />
+                  M.S., Information Technology<br />
+                  Manipal University, India · 2003<br /><br />
+                  Generative AI with Large Language Models<br />
+                  DeepLearning.AI + AWS<br /><br />
+                  Agentic AI with Google Antigravity and GCP<br /><br />
+                  Databricks Generative AI Engineer Associate · In Progress<br /><br />
+                  AWS Machine Learning Engineer Associate, MLA-C01 · In Progress
                 </div>
               </div>
-            </section>
+            </div>
           </div>
-        </div>
-        </div>
+        </section>
+
+        <!-- A FEW THINGS I CARE ABOUT -->
+        <section>
+          <div class="section-label">A Few Things I Care About</div>
+          <div class="card">
+            <div class="exec-summary">
+              Build the platform, not just the feature.<br /><br />
+              Keep humans in the loop when the cost of being wrong is high.<br /><br />
+              Measure AI systems in production, not just in notebooks.<br /><br />
+              Make permissions part of the architecture.<br /><br />
+              Keep the system boring where it should be boring.<br /><br />
+              And when something breaks, look at the logs first.
+            </div>
+          </div>
+        </section>
+
         <!-- FOOTER -->
         <footer>
-          <div class="footer-left">
-            <i class="fas fa-circle-notch"></i>
-            <span>&copy; 2026 Arif Azim · Engineering Leader</span>
-          </div>
-          <div class="footer-right">
-            Forward‑deployed AI & infra
-          </div>
+          <div>© 2026 Arif Azim</div>
+          <div>Engineering Leadership · Platform Engineering · AI Infrastructure</div>
         </footer>
       </div>
     </div>
   </div>
+
+  <script>
+    // Dark/Light theme toggle
+    const rootHtml = document.documentElement;
+    const toggleBtn = document.getElementById('themeToggle');
+
+    toggleBtn.addEventListener('click', () => {
+      const current = rootHtml.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      rootHtml.setAttribute('data-theme', next);
+    });
+
+    // Parallax motion
+    const parallaxLayer = document.querySelector('.parallax-layer');
+    window.addEventListener('scroll', () => {
+      const offset = window.scrollY * 0.08;
+      parallaxLayer.style.transform = `translate3d(0, ${offset}px, 0)`;
+    });
+
+    // Animated section headers on scroll
+    const labels = document.querySelectorAll('.section-label');
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    labels.forEach(label => observer.observe(label));
+  </script>
 </body>
 </html>
