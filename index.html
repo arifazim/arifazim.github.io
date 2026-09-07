@@ -4,41 +4,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arif Azim – Engineering Leader</title>
+  <meta name="description" content="Engineering Leader · Platform · AI-Native Infrastructure. Distributed systems, cloud platforms, agentic AI runtimes, and forward-deployed engineering." />
 
   <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg-dark: radial-gradient(circle at top left, #050816 0%, #02040b 40%, #000000 100%);
-      --bg-light: radial-gradient(circle at top left, #f5f7fb 0%, #e9edf7 40%, #ffffff 100%);
-      --text-dark: #f5f7fa;
-      --text-light: #111827;
-      --muted-dark: #b8c2d1;
-      --muted-light: #4b5563;
-      --accent: #4dd0ff;
-      --accent-strong: #7df9ff;
-      --accent-soft: rgba(77, 208, 255, 0.12);
-      --surface-dark: rgba(17, 24, 39, 0.85);
-      --surface-light: rgba(255, 255, 255, 0.9);
-      --border-dark: rgba(148, 163, 184, 0.35);
-      --border-light: rgba(148, 163, 184, 0.35);
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --radius-sm: 12px;
-      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.65);
-      --shadow-hover: 0 32px 80px rgba(0, 0, 0, 0.85);
+      --bg-dark: #000000;
+      --bg-light: #f5f5f7;
+      --text-dark: #f5f5f7;
+      --text-light: #1d1d1f;
+      --muted-dark: #a1a1a6;
+      --muted-light: #6e6e73;
+      --accent: #2997ff;
+      --accent-soft: rgba(41, 151, 255, 0.15);
+      --surface-dark: rgba(29, 29, 31, 0.72);
+      --surface-light: rgba(255, 255, 255, 0.78);
+      --border-dark: rgba(255, 255, 255, 0.12);
+      --border-light: rgba(0, 0, 0, 0.08);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --shadow-hover: 0 28px 80px rgba(0, 0, 0, 0.55);
       --max-width: 980px;
+      --header-blur: blur(20px) saturate(180%);
     }
 
-    [data-theme="dark"] body {
-      background: var(--bg-dark);
-      color: var(--text-dark);
+    [data-theme="dark"] {
+      --bg: var(--bg-dark);
+      --text: var(--text-dark);
+      --muted: var(--muted-dark);
+      --surface: var(--surface-dark);
+      --border: var(--border-dark);
+      --card-bg: linear-gradient(160deg, rgba(29, 29, 31, 0.92), rgba(22, 22, 24, 0.96));
+      --shell-bg: linear-gradient(165deg, rgba(22, 22, 24, 0.92), rgba(15, 15, 17, 0.97));
     }
 
-    [data-theme="light"] body {
-      background: var(--bg-light);
-      color: var(--text-light);
+    [data-theme="light"] {
+      --bg: var(--bg-light);
+      --text: var(--text-light);
+      --muted: var(--muted-light);
+      --surface: var(--surface-light);
+      --border: var(--border-light);
+      --card-bg: linear-gradient(160deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 247, 0.98));
+      --shell-bg: linear-gradient(165deg, rgba(255, 255, 255, 0.92), rgba(250, 250, 252, 0.97));
     }
 
     * {
@@ -52,299 +65,462 @@
     }
 
     body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.8;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       min-height: 100vh;
       overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.45s ease, color 0.45s ease;
     }
 
     a {
-      color: var(--accent-strong);
+      color: var(--accent);
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.2s ease, text-shadow 0.2s ease;
+      transition: opacity 0.2s ease;
     }
 
     a:hover {
-      text-shadow: 0 0 10px var(--accent-strong);
+      opacity: 0.8;
+    }
+
+    /* Apple-style multi-layer parallax */
+    .parallax-scene {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .parallax-layer {
+      position: absolute;
+      inset: -20%;
+      will-change: transform;
+    }
+
+    .layer-1 {
+      background:
+        radial-gradient(ellipse 80% 60% at 15% 10%, rgba(41, 151, 255, 0.22), transparent 55%),
+        radial-gradient(ellipse 70% 50% at 85% 90%, rgba(94, 92, 230, 0.14), transparent 50%);
+      opacity: 0.9;
+    }
+
+    .layer-2 {
+      background:
+        radial-gradient(ellipse 50% 40% at 70% 20%, rgba(41, 151, 255, 0.12), transparent 60%),
+        radial-gradient(ellipse 60% 45% at 25% 75%, rgba(100, 210, 255, 0.1), transparent 55%);
+      opacity: 0.7;
+    }
+
+    .layer-3 {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+      opacity: 0.5;
+    }
+
+    [data-theme="light"] .layer-1 {
+      background:
+        radial-gradient(ellipse 80% 60% at 15% 10%, rgba(41, 151, 255, 0.12), transparent 55%),
+        radial-gradient(ellipse 70% 50% at 85% 90%, rgba(94, 92, 230, 0.08), transparent 50%);
+    }
+
+    [data-theme="light"] .layer-2 {
+      background:
+        radial-gradient(ellipse 50% 40% at 70% 20%, rgba(41, 151, 255, 0.07), transparent 60%),
+        radial-gradient(ellipse 60% 45% at 25% 75%, rgba(100, 210, 255, 0.06), transparent 55%);
+    }
+
+    [data-theme="light"] .layer-3 {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.02) 0%, transparent 70%);
     }
 
     .page {
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      padding: 3rem 1.5rem 4rem;
+      padding: 3.5rem 1.5rem 5rem;
       position: relative;
-    }
-
-    .parallax-layer {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -2;
-      background:
-        radial-gradient(circle at 10% 0%, rgba(77, 208, 255, 0.18), transparent 55%),
-        radial-gradient(circle at 90% 100%, rgba(125, 249, 255, 0.16), transparent 55%);
-      opacity: 0.9;
-      transform: translate3d(0, 0, 0);
-      will-change: transform;
     }
 
     .shell {
       width: 100%;
       max-width: var(--max-width);
-      border-radius: 30px;
+      border-radius: 32px;
       box-shadow: var(--shadow-soft);
       overflow: hidden;
       position: relative;
-      backdrop-filter: blur(22px);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-    }
-
-    [data-theme="dark"] .shell {
-      background: linear-gradient(135deg, rgba(17, 24, 39, 0.96), rgba(15, 23, 42, 0.98));
-    }
-
-    [data-theme="light"] .shell {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(249, 250, 251, 0.98));
-    }
-
-    .shell::before,
-    .shell::after {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border-radius: 32px;
-      border: 1px solid rgba(125, 249, 255, 0.6);
-      box-shadow: 0 0 40px rgba(125, 249, 255, 0.4);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .shell::before {
-      top: -40px;
-      left: -60px;
-    }
-
-    .shell::after {
-      bottom: -40px;
-      right: -60px;
+      backdrop-filter: var(--header-blur);
+      -webkit-backdrop-filter: var(--header-blur);
+      border: 1px solid var(--border);
+      background: var(--shell-bg);
+      transition: background 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
     }
 
     .content {
       position: relative;
       z-index: 1;
-      padding: 2.75rem 3rem 3rem;
+      padding: 2.5rem 3rem 3.25rem;
     }
 
     @media (max-width: 768px) {
       .page {
-        padding: 1.5rem 0.75rem 2.5rem;
+        padding: 1.25rem 0.75rem 3rem;
       }
-
       .shell {
-        border-radius: 22px;
+        border-radius: 24px;
       }
-
       .content {
-        padding: 2rem 1.5rem 2.25rem;
+        padding: 1.75rem 1.35rem 2.5rem;
       }
     }
 
-    /* Dark/Light toggle */
+    /* Theme toggle — fixed top-right of shell, never overlaps content */
     .theme-toggle {
       position: absolute;
-      top: 1.4rem;
-      right: 1.6rem;
+      top: 1.35rem;
+      right: 1.5rem;
+      z-index: 20;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.4rem 0.8rem;
+      gap: 0.45rem;
+      padding: 0.45rem 0.9rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      font-size: 0.75rem;
+      border: 1px solid var(--border);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
       cursor: pointer;
-      background: rgba(15, 23, 42, 0.85);
-      color: #e5e7eb;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
-      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    [data-theme="light"] .theme-toggle {
-      background: rgba(255, 255, 255, 0.9);
-      color: #111827;
+      background: var(--surface);
+      color: var(--text);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+      user-select: none;
     }
 
     .theme-toggle:hover {
       transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+    }
+
+    .theme-toggle:active {
+      transform: translateY(0);
     }
 
     .theme-toggle-icon {
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
       border-radius: 50%;
-      background: radial-gradient(circle, #7df9ff 0%, #4dd0ff 40%, #0ea5e9 100%);
-      box-shadow: 0 0 12px rgba(125, 249, 255, 0.8);
+      background: radial-gradient(circle at 30% 30%, #64d2ff, #2997ff 55%, #0a84ff);
+      box-shadow: 0 0 10px rgba(41, 151, 255, 0.7);
+      flex-shrink: 0;
     }
 
-    /* Header */
+    /* ========== HEADER ========== */
     header {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.75rem;
       margin-bottom: 2.75rem;
-      padding-bottom: 1.75rem;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
-    }
-
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 2rem;
+      padding-bottom: 2rem;
+      padding-top: 0.5rem;
+      border-bottom: 1px solid var(--border);
     }
 
     .identity {
-      max-width: 640px;
+      max-width: 720px;
     }
 
     .name {
-      font-size: clamp(2.8rem, 5vw, 3.6rem);
-      line-height: 1;
+      font-size: clamp(2.6rem, 6vw, 3.75rem);
+      line-height: 1.05;
       font-weight: 700;
-      letter-spacing: -0.08em;
-      background: linear-gradient(135deg, #7df9ff 0%, #4dd0ff 40%, #7df9ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeIn 1.2s ease;
+      letter-spacing: -0.035em;
+      color: var(--text);
+      animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
 
     .title {
-      margin-top: 0.9rem;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.19em;
-      color: var(--accent-strong);
-      animation: slideIn 0.9s ease;
-    }
-
-    .summary-chip {
-      max-width: 620px;
-      margin-top: 1.15rem;
-      font-size: 1rem;
-      line-height: 1.8;
-      color: var(--muted-dark);
-    }
-
-    [data-theme="light"] .summary-chip {
-      color: var(--muted-light);
-    }
-
-    .summary-chip span {
-      color: inherit;
-      font-weight: 600;
-    }
-
-    .header-actions {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.9rem;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 0.7rem 1.2rem;
-      border-radius: 999px;
-      border: 1px solid rgba(125, 249, 255, 0.7);
-      background: radial-gradient(circle at 0% 0%, rgba(77, 208, 255, 0.3), rgba(15, 23, 42, 0.95));
-      color: #e5e7eb;
+      margin-top: 0.85rem;
       font-size: 0.78rem;
-      font-weight: 700;
+      font-weight: 650;
       text-transform: uppercase;
-      letter-spacing: 0.09em;
-      cursor: pointer;
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.65);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
-      background: radial-gradient(circle at 0% 0%, rgba(125, 249, 255, 0.4), rgba(15, 23, 42, 0.98));
+    .summary {
+      margin-top: 1.15rem;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 640px;
+      animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both;
     }
 
-    .contact-row {
+    /* Resume + contact block — placed below identity, clear of toggle */
+    .header-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.65rem 1.25rem;
-      font-size: 0.82rem;
-      color: var(--muted-dark);
+      align-items: center;
+      gap: 1.1rem 1.75rem;
+      margin-top: 0.35rem;
+      animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
     }
 
-    [data-theme="light"] .contact-row {
-      color: var(--muted-light);
+    .btn-resume {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.72rem 1.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(41, 151, 255, 0.45);
+      background: linear-gradient(135deg, rgba(41, 151, 255, 0.22), rgba(10, 132, 255, 0.12));
+      color: var(--text);
+      font-size: 0.78rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 10px 28px rgba(41, 151, 255, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.25s ease;
+      text-decoration: none;
     }
 
-    .contact-item {
+    .btn-resume:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(41, 151, 255, 0.28);
+      background: linear-gradient(135deg, rgba(41, 151, 255, 0.32), rgba(10, 132, 255, 0.18));
+      opacity: 1;
+    }
+
+    .btn-resume svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    .contact-pills {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.55rem 0.85rem;
+      font-size: 0.88rem;
+    }
+
+    .contact-pill {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
+      padding: 0.38rem 0.85rem;
+      border-radius: 999px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      border: 1px solid transparent;
+      transition: transform 0.25s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      animation: softGlow 3.2s ease-in-out infinite;
     }
 
-    .contact-item a {
-      border-bottom: 1px solid transparent;
+    .contact-pill.location {
+      color: #64d2ff;
+      background: rgba(100, 210, 255, 0.08);
+      border-color: rgba(100, 210, 255, 0.28);
+      box-shadow: 0 0 16px rgba(100, 210, 255, 0.22);
+      animation-delay: 0s;
     }
 
-    .contact-item a:hover {
-      border-bottom-color: var(--accent-strong);
+    .contact-pill.phone {
+      color: #5ef2a3;
+      background: rgba(94, 242, 163, 0.08);
+      border-color: rgba(94, 242, 163, 0.28);
+      box-shadow: 0 0 16px rgba(94, 242, 163, 0.22);
+      animation-delay: 0.4s;
     }
 
-    @media (max-width: 700px) {
-      .header-top {
-        flex-direction: column;
-        gap: 1.5rem;
+    .contact-pill.email {
+      color: #ff9f0a;
+      background: rgba(255, 159, 10, 0.08);
+      border-color: rgba(255, 159, 10, 0.28);
+      box-shadow: 0 0 16px rgba(255, 159, 10, 0.22);
+      animation-delay: 0.8s;
+    }
+
+    .contact-pill:hover {
+      transform: translateY(-2px);
+      opacity: 1;
+    }
+
+    .contact-pill.location:hover {
+      box-shadow: 0 0 24px rgba(100, 210, 255, 0.45);
+      border-color: rgba(100, 210, 255, 0.55);
+    }
+
+    .contact-pill.phone:hover {
+      box-shadow: 0 0 24px rgba(94, 242, 163, 0.45);
+      border-color: rgba(94, 242, 163, 0.55);
+    }
+
+    .contact-pill.email:hover {
+      box-shadow: 0 0 24px rgba(255, 159, 10, 0.45);
+      border-color: rgba(255, 159, 10, 0.55);
+    }
+
+    [data-theme="light"] .contact-pill.location {
+      color: #0071e3;
+      background: rgba(0, 113, 227, 0.08);
+      border-color: rgba(0, 113, 227, 0.22);
+      box-shadow: 0 0 14px rgba(0, 113, 227, 0.15);
+    }
+
+    [data-theme="light"] .contact-pill.phone {
+      color: #1a7f4b;
+      background: rgba(26, 127, 75, 0.08);
+      border-color: rgba(26, 127, 75, 0.22);
+      box-shadow: 0 0 14px rgba(26, 127, 75, 0.12);
+    }
+
+    [data-theme="light"] .contact-pill.email {
+      color: #c93400;
+      background: rgba(201, 52, 0, 0.07);
+      border-color: rgba(201, 52, 0, 0.2);
+      box-shadow: 0 0 14px rgba(201, 52, 0, 0.12);
+    }
+
+    /* Social links row */
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      font-size: 0.86rem;
+      animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.95rem;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border: 1px solid transparent;
+      transition: transform 0.25s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+      animation: softGlow 3.6s ease-in-out infinite;
+      text-decoration: none;
+      opacity: 1;
+    }
+
+    .social-link.linkedin {
+      color: #0a66c2;
+      background: rgba(10, 102, 194, 0.12);
+      border-color: rgba(10, 102, 194, 0.35);
+      box-shadow: 0 0 18px rgba(10, 102, 194, 0.28);
+      animation-delay: 0s;
+    }
+
+    .social-link.github {
+      color: #e6edf3;
+      background: rgba(230, 237, 243, 0.08);
+      border-color: rgba(230, 237, 243, 0.22);
+      box-shadow: 0 0 18px rgba(230, 237, 243, 0.18);
+      animation-delay: 0.35s;
+    }
+
+    .social-link.kaggle {
+      color: #20beff;
+      background: rgba(32, 190, 255, 0.1);
+      border-color: rgba(32, 190, 255, 0.32);
+      box-shadow: 0 0 18px rgba(32, 190, 255, 0.25);
+      animation-delay: 0.7s;
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      opacity: 1;
+    }
+
+    .social-link.linkedin:hover {
+      box-shadow: 0 0 28px rgba(10, 102, 194, 0.5);
+      border-color: rgba(10, 102, 194, 0.6);
+      background: rgba(10, 102, 194, 0.2);
+    }
+
+    .social-link.github:hover {
+      box-shadow: 0 0 28px rgba(230, 237, 243, 0.35);
+      border-color: rgba(230, 237, 243, 0.4);
+      background: rgba(230, 237, 243, 0.14);
+    }
+
+    .social-link.kaggle:hover {
+      box-shadow: 0 0 28px rgba(32, 190, 255, 0.48);
+      border-color: rgba(32, 190, 255, 0.55);
+      background: rgba(32, 190, 255, 0.18);
+    }
+
+    [data-theme="light"] .social-link.linkedin {
+      color: #0a66c2;
+      background: rgba(10, 102, 194, 0.1);
+      border-color: rgba(10, 102, 194, 0.28);
+      box-shadow: 0 0 14px rgba(10, 102, 194, 0.18);
+    }
+
+    [data-theme="light"] .social-link.github {
+      color: #24292f;
+      background: rgba(36, 41, 47, 0.07);
+      border-color: rgba(36, 41, 47, 0.18);
+      box-shadow: 0 0 14px rgba(36, 41, 47, 0.1);
+    }
+
+    [data-theme="light"] .social-link.kaggle {
+      color: #20beff;
+      background: rgba(32, 190, 255, 0.1);
+      border-color: rgba(32, 190, 255, 0.28);
+      box-shadow: 0 0 14px rgba(32, 190, 255, 0.16);
+    }
+
+    @keyframes softGlow {
+      0%, 100% {
+        filter: brightness(1);
       }
-
-      .header-actions {
-        align-items: flex-start;
+      50% {
+        filter: brightness(1.18);
       }
     }
 
-    /* Section layout */
+    /* ========== SECTIONS ========== */
     section {
-      margin-bottom: 2.25rem;
+      margin-bottom: 2.4rem;
     }
 
     .section-label {
-      font-size: 0.78rem;
-      font-weight: 800;
+      font-size: 0.72rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--accent-strong);
-      margin-bottom: 0.9rem;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 1rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.65rem;
-      position: relative;
+      gap: 0.6rem;
       opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(14px);
+      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .section-label::before {
       content: "";
-      width: 26px;
-      height: 3px;
+      width: 22px;
+      height: 2px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #7df9ff 0%, #4dd0ff 40%, #7df9ff 100%);
-      box-shadow: 0 0 16px rgba(125, 249, 255, 0.8);
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(41, 151, 255, 0.6);
     }
 
     .section-label.visible {
@@ -355,123 +531,190 @@
     .card {
       position: relative;
       border-radius: var(--radius-lg);
-      padding: 1.4rem 1.5rem;
-      margin-bottom: 1.4rem;
-      transform-style: preserve-3d;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-      border: 1px solid var(--border-dark);
-      background: linear-gradient(145deg, rgba(17, 24, 39, 0.96), rgba(15, 23, 42, 0.98));
-      box-shadow: var(--shadow-soft);
-    }
-
-    [data-theme="light"] .card {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(249, 250, 251, 0.98));
-      border-color: var(--border-light);
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      border: 1px solid rgba(125, 249, 255, 0.35);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
+      padding: 1.35rem 1.4rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-6px) rotateX(4deg) rotateY(-3deg);
+      transform: translateY(-4px);
       box-shadow: var(--shadow-hover);
+      border-color: rgba(41, 151, 255, 0.28);
     }
 
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .exec-summary {
-      font-size: 0.98rem;
-      line-height: 1.9;
-      color: var(--muted-dark);
-    }
-
-    [data-theme="light"] .exec-summary {
-      color: var(--muted-light);
-    }
-
-    .exec-summary strong {
-      font-weight: 650;
-      color: inherit;
-    }
-
-    .impact-list {
+    /* Metric grid */
+    .metrics {
       display: grid;
-      gap: 0.9rem;
-      font-size: 0.9rem;
-      color: var(--muted-dark);
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1rem;
     }
 
-    [data-theme="light"] .impact-list {
-      color: var(--muted-light);
+    .metric {
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(41, 151, 255, 0.06);
+      text-align: center;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .impact-item {
-      position: relative;
-      padding-left: 1.1rem;
+    .metric:hover {
+      border-color: rgba(41, 151, 255, 0.35);
+      box-shadow: 0 0 20px rgba(41, 151, 255, 0.12);
     }
 
-    .impact-item::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.6rem;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px var(--accent-soft);
+    .metric-value {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.2;
     }
 
-    .impact-item strong {
+    .metric-label {
+      margin-top: 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    /* Impact rows */
+    .impact-grid {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .impact-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.85rem;
+      align-items: start;
+      padding: 0.75rem 0.9rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    [data-theme="light"] .impact-row {
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    .impact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      background: rgba(41, 151, 255, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(41, 151, 255, 0.25);
+    }
+
+    .impact-body {
+      min-width: 0;
+    }
+
+    .impact-title {
       font-weight: 650;
-      color: inherit;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 0.15rem;
     }
 
+    .impact-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .impact-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.7rem;
+      margin-top: 0.4rem;
+    }
+
+    .stat-chip {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(41, 151, 255, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(41, 151, 255, 0.22);
+      white-space: nowrap;
+    }
+
+    /* Tag cloud */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.74rem;
+      font-weight: 550;
+      padding: 0.32rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.03);
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    [data-theme="light"] .tag {
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .tag:hover {
+      border-color: rgba(41, 151, 255, 0.4);
+      color: var(--accent);
+    }
+
+    .tag-group {
+      margin-bottom: 0.85rem;
+    }
+
+    .tag-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .tag-group-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.45rem;
+      opacity: 0.8;
+    }
+
+    /* Project cards compact */
     .project {
       position: relative;
       border-radius: var(--radius-md);
-      padding: 1.2rem 1.3rem;
-      margin-bottom: 1rem;
-      transform-style: preserve-3d;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-      border: 1px solid var(--border-dark);
-      background: linear-gradient(145deg, rgba(17, 24, 39, 0.94), rgba(15, 23, 42, 0.98));
-      box-shadow: var(--shadow-soft);
-    }
-
-    [data-theme="light"] .project {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(249, 250, 251, 0.98));
-      border-color: var(--border-light);
-    }
-
-    .project::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      border: 1px solid rgba(125, 249, 255, 0.35);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
+      padding: 1.1rem 1.2rem;
+      margin-bottom: 0.75rem;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
     }
 
     .project:hover {
-      transform: translateY(-6px) rotateX(4deg) rotateY(-3deg);
+      transform: translateY(-3px);
       box-shadow: var(--shadow-hover);
-    }
-
-    .project:hover::before {
-      opacity: 1;
+      border-color: rgba(41, 151, 255, 0.28);
     }
 
     .project-title-row {
@@ -483,139 +726,171 @@
     }
 
     .project-title {
-      font-weight: 700;
-      font-size: 0.96rem;
+      font-weight: 650;
+      font-size: 0.94rem;
+      color: var(--text);
     }
 
     .project-meta {
-      font-size: 0.78rem;
-      color: var(--accent-strong);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.03em;
       white-space: nowrap;
     }
 
-    .project-line {
-      margin-top: 0.2rem;
-      font-size: 0.9rem;
-      color: var(--muted-dark);
+    .project-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 0.45rem;
     }
 
-    [data-theme="light"] .project-line {
-      color: var(--muted-light);
+    .project-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.55rem;
     }
 
-    .project-line span {
+    /* Principles */
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.6rem;
+    }
+
+    .principle {
+      padding: 0.75rem 0.9rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.45;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    [data-theme="light"] .principle {
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    .principle strong {
+      color: var(--text);
       font-weight: 650;
+      display: block;
+      margin-bottom: 0.15rem;
+      font-size: 0.86rem;
     }
 
-    /* Columns for Career + Education */
+    /* Two-col layout helper */
+    .split-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 720px) {
+      .split-2 {
+        grid-template-columns: 1fr;
+      }
+      .metrics {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Career + Education */
     .timeline-certs {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 2rem;
-      position: relative;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
     }
 
-    .timeline-certs::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 0;
-      width: 3px;
-      height: 100%;
-      background: linear-gradient(180deg, #7df9ff 0%, #4dd0ff 50%, #7df9ff 100%);
-      border-radius: 999px;
-      box-shadow: 0 0 22px rgba(125, 249, 255, 0.9);
-      transform: translateX(-50%);
-    }
-
-    @media (max-width: 900px) {
+    @media (max-width: 820px) {
       .timeline-certs {
         grid-template-columns: 1fr;
-      }
-      .timeline-certs::before {
-        display: none;
       }
     }
 
     .timeline {
       position: relative;
-      padding-top: 0.4rem;
-      font-size: 0.86rem;
-    }
-
-    .timeline-track {
-      position: absolute;
-      left: 0.27rem;
-      top: 0;
-      bottom: 0.45rem;
-      width: 1px;
-      background: rgba(148, 163, 184, 0.6);
+      font-size: 0.88rem;
+      padding-left: 0.15rem;
     }
 
     .timeline-item {
       position: relative;
-      padding-left: 1.25rem;
-      margin-bottom: 0.95rem;
+      padding-left: 1.35rem;
+      margin-bottom: 1.05rem;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
     }
 
     .timeline-item::before {
       content: "";
       position: absolute;
-      left: -0.01rem;
-      top: 0.38rem;
-      width: 8px;
-      height: 8px;
+      left: 0;
+      top: 0.45rem;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: rgba(17, 24, 39, 1);
+      background: var(--bg);
       border: 2px solid var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .timeline-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: 1.15rem;
+      bottom: -1.05rem;
+      width: 1px;
+      background: var(--border);
     }
 
     .timeline-role {
-      font-weight: 700;
-      line-height: 1.5;
+      font-weight: 650;
+      color: var(--text);
+      line-height: 1.4;
     }
 
     .timeline-meta {
       font-size: 0.8rem;
-      color: var(--muted-dark);
-    }
-
-    [data-theme="light"] .timeline-meta {
-      color: var(--muted-light);
+      color: var(--muted);
+      margin-top: 0.15rem;
     }
 
     footer {
-      margin-top: 2.5rem;
-      padding-top: 1.2rem;
-      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      margin-top: 2.75rem;
+      padding-top: 1.35rem;
+      border-top: 1px solid var(--border);
       font-size: 0.8rem;
-      color: var(--muted-dark);
+      color: var(--muted);
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 0.75rem;
     }
 
-    [data-theme="light"] footer {
-      color: var(--muted-light);
-    }
-
-    @media (max-width: 700px) {
+    @media (max-width: 640px) {
       footer {
         flex-direction: column;
         align-items: flex-start;
+        gap: 0.35rem;
       }
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(14px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(-18px); }
-      to { opacity: 1; transform: translateX(0); }
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -626,82 +901,96 @@
         transition: none !important;
         animation: none !important;
       }
+      .parallax-layer {
+        transform: none !important;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="parallax-layer"></div>
+  <!-- Apple-style multi-layer parallax background -->
+  <div class="parallax-scene" aria-hidden="true">
+    <div class="parallax-layer layer-1" data-depth="0.12"></div>
+    <div class="parallax-layer layer-2" data-depth="0.22"></div>
+    <div class="parallax-layer layer-3" data-depth="0.06"></div>
+  </div>
+
   <div class="page">
     <div class="shell">
-      <button class="theme-toggle" id="themeToggle">
-        <div class="theme-toggle-icon"></div>
-        <span>Toggle theme</span>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
+        <span id="themeLabel">Light</span>
       </button>
+
       <div class="content">
         <!-- HEADER -->
         <header>
-          <div class="header-top">
-            <div class="identity">
-              <div class="name">Arif Azim</div>
-              <div class="title">Engineering Leader | Platform Engineering | AI Infrastructure</div>
-              <div class="summary-chip">
-                I build distributed systems, cloud platforms, developer infrastructure, and production AI systems.<br /><br />
-                My work sits at the intersection of engineering leadership and hands-on architecture. I have built backend platforms, AI and RAG systems, agent runtimes, developer tooling, and cloud infrastructure used in large, regulated environments.<br /><br />
-                I have led engineering teams across the US, India, Ukraine, and Latin America, and I still spend plenty of time in the code, architecture diagrams, logs, and production systems.
-              </div>
-            </div>
-            <div class="header-actions">
-              <a href="http://tiny.cc/a1x9101" class="btn-primary" target="_blank" rel="noopener">
-                <span>Resume PDF</span>
-              </a>
-              <div class="contact-row">
-                <div class="contact-item">
-                  <span>SF Bay Area</span>
-                </div>
-              </div>
+          <div class="identity">
+            <h1 class="name">Arif Azim</h1>
+            <div class="title">Engineering Leader · Platform · AI‑Native Infrastructure</div>
+            <p class="summary">
+              Distributed systems, cloud platforms, agentic AI runtimes, and forward‑deployed engineering for high‑scale, compliant production environments.
+            </p>
+          </div>
+
+          <div class="header-meta">
+            <a href="http://tiny.cc/a1x9101" class="btn-resume" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download Resume PDF
+            </a>
+            <div class="contact-pills">
+              <span class="contact-pill location">SF Bay Area</span>
+              <a href="tel:+12016734401" class="contact-pill phone">(201) 673‑4401</a>
+              <a href="mailto:arif.azim@gmail.com" class="contact-pill email">arif.azim@gmail.com</a>
             </div>
           </div>
 
-          <div class="contact-row" style="margin-top: 0.75rem;">
-            <div class="contact-item">
-              <a href="http://tiny.cc/a1x9101" target="_blank" rel="noopener">Resume</a>
-            </div>
-            <div class="contact-item">
-              <a href="https://linkedin.com/in/arif-azim" target="_blank" rel="noopener">LinkedIn</a>
-            </div>
-            <div class="contact-item">
-              <a href="https://github.com/arifazim" target="_blank" rel="noopener">GitHub</a>
-            </div>
-            <div class="contact-item">
-              <a href="https://www.kaggle.com/arif3012" target="_blank" rel="noopener">Kaggle</a>
-            </div>
+          <div class="social-row">
+            <a href="https://linkedin.com/in/arif-azim" class="social-link linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/arifazim" class="social-link github" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.kaggle.com/arif3012" class="social-link kaggle" target="_blank" rel="noopener noreferrer">Kaggle</a>
           </div>
         </header>
 
-        <!-- WHAT I BUILD -->
+        <!-- IMPACT SNAPSHOT -->
         <section>
-          <div class="section-label">What I Build</div>
-          <div class="card">
-            <div class="exec-summary">
-              Most of my recent work has been around production AI and the infrastructure underneath it.<br /><br />
-              I have built hybrid RAG systems using FAISS, BM25, reranking, grounding checks, and evaluation pipelines. One of these systems now handles more than 10,000 sessions a day and helped reduce support costs by about $1.3M a year. Resolution rates went from 42% to 68%, while CSAT moved from 3.6 to 8.2.<br /><br />
-              I built a LangGraph routing agent for high-volume support workflows, with intent routing, guardrails, retry budgets, semantic caching, and LangSmith tracing. It reduced escalations by 65% across more than 8,000 sessions a day, with task completion above 99%.<br /><br />
-              I also built an evaluation system around LLM-as-judge scoring, grounding checks, safety tests, and CI/CD gates. The goal was simple. Catch bad model behavior before it reaches production. Evaluation time dropped by about 70%, and the pipeline caught three regressions before release.<br /><br />
-              Another project involved automated document redaction for public-sector workloads. The system processes more than 50,000 documents a month using AWS Textract, Comprehend, custom NLP, and multiple quality checks. It cut manual audit work by about 80%.<br /><br />
-              There is a fair amount of infrastructure behind all of this. Azure AI Foundry, AWS Bedrock, Azure Search, PostgreSQL, containers, CI/CD, observability, APIs, authentication, access control, and the usual collection of things that become very important once an AI prototype has to survive real users.
+          <div class="section-label">Impact Snapshot</div>
+          <div class="metrics">
+            <div class="metric">
+              <div class="metric-value">$1.3M</div>
+              <div class="metric-label">Support savings / yr</div>
             </div>
-          </div>
-        </section>
-
-        <!-- ENGINEERING LEADERSHIP -->
-        <section>
-          <div class="section-label">Engineering Leadership</div>
-          <div class="card">
-            <div class="exec-summary">
-              I have managed teams ranging from 7 to 15 engineers across several countries.<br /><br />
-              That includes hiring, technical direction, roadmap planning, architecture reviews, mentoring, incident response, and working directly with product and business leaders. I care about the engineering system around the team as much as the technology itself. Good engineers need clear ownership, reasonable standards, fast feedback, and enough room to make decisions.<br /><br />
-              At Coupa, I led platform engineering work across enterprise integrations and backend services. Platform changes contributed to roughly $2.8M a year in automation savings. I also worked on micro-frontend and GraphQL modernization, reducing deployment friction and the merge conflicts that had become a problem across product teams.<br /><br />
-              Earlier roles covered backend systems, distributed services, cloud infrastructure, and large-scale enterprise software.
+            <div class="metric">
+              <div class="metric-value">$2.8M</div>
+              <div class="metric-label">Automation savings / yr</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">10K+</div>
+              <div class="metric-label">Daily AI sessions</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">65%</div>
+              <div class="metric-label">Fewer escalations</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">42→68%</div>
+              <div class="metric-label">Resolution rate</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">3.6→8.2</div>
+              <div class="metric-label">CSAT lift</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">70%</div>
+              <div class="metric-label">Faster eval cycles</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">80%</div>
+              <div class="metric-label">Less manual audit</div>
             </div>
           </div>
         </section>
@@ -715,11 +1004,13 @@
               <div class="project-title">Hybrid RAG Support Platform</div>
               <div class="project-meta">Public Sector</div>
             </div>
-            <div class="project-line">
-              A production support platform combining dense and sparse retrieval, reranking, grounding validation, drift monitoring, and LLM evaluation.
-            </div>
-            <div class="project-line">
-              10K+ daily sessions · 42% → 68% resolution · CSAT 3.6 → 8.2 · $1.3M/year support savings · Sub-2-second P99
+            <div class="project-desc">Dense + sparse retrieval · reranking · grounding · drift monitoring · LLM eval</div>
+            <div class="project-stats">
+              <span class="stat-chip">10K+ sessions/day</span>
+              <span class="stat-chip">42% → 68% resolution</span>
+              <span class="stat-chip">CSAT 3.6 → 8.2</span>
+              <span class="stat-chip">$1.3M/yr</span>
+              <span class="stat-chip">P99 &lt; 2s</span>
             </div>
           </div>
 
@@ -727,14 +1018,12 @@
             <div class="project-title-row">
               <div class="project-title">LangGraph Routing Agent</div>
             </div>
-            <div class="project-line">
-              A multi-intent routing system that sends requests through specialist workflows and escalates to people when needed.
-            </div>
-            <div class="project-line">
-              The system uses guardrails, retry budgets, semantic caching, and LangSmith tracing.
-            </div>
-            <div class="project-line">
-              65% fewer escalations · 8K+ sessions/day · 99%+ task completion
+            <div class="project-desc">Multi-intent routing · specialist workflows · human escalation · guardrails · semantic cache · LangSmith</div>
+            <div class="project-stats">
+              <span class="stat-chip">65% fewer escalations</span>
+              <span class="stat-chip">8K+ sessions/day</span>
+              <span class="stat-chip">99%+ task completion</span>
+              <span class="stat-chip">−35% LLM calls</span>
             </div>
           </div>
 
@@ -742,14 +1031,11 @@
             <div class="project-title-row">
               <div class="project-title">LLM Evaluation Platform</div>
             </div>
-            <div class="project-line">
-              An evaluation pipeline built around LLM-as-judge scoring, human calibration, grounding validation, safety tests, and CI/CD gates.
-            </div>
-            <div class="project-line">
-              The scoring system was calibrated to less than 5% disagreement with human evaluation.
-            </div>
-            <div class="project-line">
-              Evaluation cycle time dropped 70%, and three regressions were caught before production.
+            <div class="project-desc">LLM-as-judge · human calibration · grounding · safety tests · CI/CD gates</div>
+            <div class="project-stats">
+              <span class="stat-chip">&lt;5% human disagreement</span>
+              <span class="stat-chip">70% faster cycles</span>
+              <span class="stat-chip">3 regressions caught pre-prod</span>
             </div>
           </div>
 
@@ -757,39 +1043,25 @@
             <div class="project-title-row">
               <div class="project-title">AI Redaction Pipeline</div>
             </div>
-            <div class="project-line">
-              A document processing pipeline built for large public-sector workloads.
-            </div>
-            <div class="project-line">
-              It combines Textract, Comprehend, custom NLP processing, and automated quality checks to identify and remove sensitive information from documents.
-            </div>
-            <div class="project-line">
-              50K+ documents/month · 80% reduction in manual audit work
+            <div class="project-desc">Textract · Comprehend · custom NLP · multi-pass quality checks · public-sector scale</div>
+            <div class="project-stats">
+              <span class="stat-chip">50K+ docs/month</span>
+              <span class="stat-chip">80% less manual audit</span>
             </div>
           </div>
 
           <div class="project">
             <div class="project-title-row">
-              <div class="project-title">RBAC RAG and Multi-Agent Access</div>
+              <div class="project-title">RBAC RAG + Multi-Agent Access</div>
             </div>
-            <div class="project-line">
-              A department-aware RAG system built on Azure Search.
-            </div>
-            <div class="project-line">
-              Documents are collected and classified through automated workflows, while retrieval follows existing organizational permissions. Agents cannot simply retrieve everything that exists in the index. Access follows the user's department and role.
-            </div>
+            <div class="project-desc">Azure Search · department-aware retrieval · automated classification · role-bound agent access</div>
           </div>
 
           <div class="project">
             <div class="project-title-row">
               <div class="project-title">8-Pass Redaction Platform</div>
             </div>
-            <div class="project-line">
-              A multi-stage redaction system running across Azure AI Foundry and AWS Bedrock.
-            </div>
-            <div class="project-line">
-              It handles inconsistent PDF layouts, OCR output, images, and other media formats. Different passes look for different classes of sensitive information, with additional checks to reduce missed entities and unnecessary redaction.
-            </div>
+            <div class="project-desc">Azure AI Foundry + AWS Bedrock · multi-format PDFs/OCR/images · DOJ · HIPAA · public-sector</div>
           </div>
 
           <div class="project">
@@ -797,182 +1069,321 @@
               <div class="project-title">Enterprise Automation Platform</div>
               <div class="project-meta">Coupa</div>
             </div>
-            <div class="project-line">
-              Backend automation services and platform APIs replaced repetitive integration work and helped save approximately $2.8M per year.
-            </div>
-            <div class="project-line">
-              I also worked on micro-frontend decomposition and platform changes that reduced deployment conflicts between product teams.
+            <div class="project-desc">Backend automation APIs · micro-frontend decomposition · GraphQL modernization</div>
+            <div class="project-stats">
+              <span class="stat-chip">$2.8M/yr savings</span>
+              <span class="stat-chip">Fewer deploy conflicts</span>
             </div>
           </div>
         </section>
 
-        <!-- THE TECHNICAL SIDE -->
+        <!-- LEADERSHIP -->
         <section>
-          <div class="section-label">The Technical Side</div>
+          <div class="section-label">Engineering Leadership</div>
           <div class="card">
-            <div class="exec-summary">
-              I spend most of my time around Python, Node.js, REST APIs, microservices, PostgreSQL, event-driven systems, and cloud infrastructure. I have also worked with Go and continue to deepen it.<br /><br />
-              On AWS, that includes Bedrock, SageMaker, Lambda, Step Functions, Textract, ECS, and RDS.<br /><br />
-              On Azure, my work includes Azure AI Foundry, Azure Search, identity and access control, and cloud-native application infrastructure. I have also worked across GCP and hybrid cloud environments.<br /><br />
-              For AI systems, I work with FAISS, Qdrant, Chroma, BM25, rerankers, grounding validation, evaluation harnesses, drift monitoring, vLLM, OpenRouter, and Ollama.<br /><br />
-              For agents, I use LangGraph and LangChain, along with MCP, A2A, ADK, tool calling, retry policies, semantic caching, and workflow orchestration.<br /><br />
-              The less glamorous parts matter too. Idempotency. Rate limits. Circuit breakers. Observability. SLOs. Deployment pipelines. Authentication. Incident response. Database schemas. The stuff that tends to matter most after the demo is over.
+            <div class="metrics" style="margin-bottom: 0.85rem;">
+              <div class="metric">
+                <div class="metric-value">7–15</div>
+                <div class="metric-label">Engineers managed</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">4</div>
+                <div class="metric-label">Regions (US, IN, UA, LATAM)</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">$2.8M</div>
+                <div class="metric-label">Platform savings @ Coupa</div>
+              </div>
+            </div>
+            <div class="tags">
+              <span class="tag">Hiring</span>
+              <span class="tag">Roadmaps</span>
+              <span class="tag">Architecture reviews</span>
+              <span class="tag">Mentoring</span>
+              <span class="tag">Incident response</span>
+              <span class="tag">Product partnership</span>
+              <span class="tag">Ownership models</span>
+              <span class="tag">Fast feedback loops</span>
             </div>
           </div>
         </section>
 
-        <!-- RECENT AI WORK -->
+        <!-- STACK -->
         <section>
-          <div class="section-label">Recent AI Work</div>
+          <div class="section-label">Technical Stack</div>
           <div class="card">
-            <div class="exec-summary">
-              I built a LangGraph multi-intent routing agent that moves requests through triage, specialist handling, and human escalation.<br /><br />
-              Semantic caching reduced LLM calls by about 35% across production workflows.<br /><br />
-              I built LLM-as-judge scoring calibrated against human reviewers for factuality and grounding.<br /><br />
-              I have worked on hybrid retrieval systems serving more than 10,000 daily sessions and handling regulated workloads.<br /><br />
-              I have added statistical monitoring to live AI traffic to catch changes in response quality and latency.<br /><br />
-              I have also built safety evaluation suites for multilingual and domain-specific applications, including healthcare, legal, and logistics workloads.
+            <div class="tag-group">
+              <div class="tag-group-label">Languages &amp; Core</div>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Go</span>
+                <span class="tag">REST APIs</span>
+                <span class="tag">Microservices</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Event-driven</span>
+              </div>
+            </div>
+            <div class="tag-group">
+              <div class="tag-group-label">AWS</div>
+              <div class="tags">
+                <span class="tag">Bedrock</span>
+                <span class="tag">SageMaker</span>
+                <span class="tag">Lambda</span>
+                <span class="tag">Step Functions</span>
+                <span class="tag">Textract</span>
+                <span class="tag">ECS</span>
+                <span class="tag">RDS</span>
+              </div>
+            </div>
+            <div class="tag-group">
+              <div class="tag-group-label">Azure / GCP</div>
+              <div class="tags">
+                <span class="tag">Azure AI Foundry</span>
+                <span class="tag">Azure Search</span>
+                <span class="tag">IAM / Access Control</span>
+                <span class="tag">GCP</span>
+                <span class="tag">Hybrid Cloud</span>
+              </div>
+            </div>
+            <div class="tag-group">
+              <div class="tag-group-label">AI Systems</div>
+              <div class="tags">
+                <span class="tag">FAISS</span>
+                <span class="tag">Qdrant</span>
+                <span class="tag">Chroma</span>
+                <span class="tag">BM25</span>
+                <span class="tag">Rerankers</span>
+                <span class="tag">Grounding</span>
+                <span class="tag">Eval harnesses</span>
+                <span class="tag">Drift monitoring</span>
+                <span class="tag">vLLM</span>
+                <span class="tag">OpenRouter</span>
+                <span class="tag">Ollama</span>
+              </div>
+            </div>
+            <div class="tag-group">
+              <div class="tag-group-label">Agents</div>
+              <div class="tags">
+                <span class="tag">LangGraph</span>
+                <span class="tag">LangChain</span>
+                <span class="tag">MCP</span>
+                <span class="tag">A2A</span>
+                <span class="tag">ADK</span>
+                <span class="tag">Tool calling</span>
+                <span class="tag">Semantic caching</span>
+                <span class="tag">Orchestration</span>
+              </div>
+            </div>
+            <div class="tag-group">
+              <div class="tag-group-label">Production Hardening</div>
+              <div class="tags">
+                <span class="tag">Idempotency</span>
+                <span class="tag">Rate limits</span>
+                <span class="tag">Circuit breakers</span>
+                <span class="tag">Observability</span>
+                <span class="tag">SLOs</span>
+                <span class="tag">CI/CD</span>
+                <span class="tag">AuthN/AuthZ</span>
+                <span class="tag">Incident response</span>
+              </div>
             </div>
           </div>
         </section>
 
-        <!-- FORWARD-DEPLOYED ENGINEERING -->
+        <!-- FORWARD-DEPLOYED -->
         <section>
           <div class="section-label">Forward-Deployed Engineering</div>
-          <div class="card">
-            <div class="exec-summary">
-              Some of my recent work has been close to the customer and the actual operating environment.<br /><br />
-              One example was an Azure Search RAG system with department-level permissions and multi-agent document workflows. The system collects and classifies documents, then limits retrieval according to existing authorization boundaries.<br /><br />
-              Another was an eight-pass redaction platform spanning Azure AI Foundry and AWS Bedrock. The challenge was not simply detecting PII. Documents arrived in different formats, with different OCR quality, layouts, images, and regulatory requirements. The system had to deal with that mess without making every workflow a custom project.<br /><br />
-              That work included DOJ, HIPAA, and public-sector requirements, with the usual tradeoff between finding every sensitive entity and avoiding unnecessary redaction.
+          <div class="impact-grid">
+            <div class="impact-row">
+              <div class="impact-icon">RBAC</div>
+              <div class="impact-body">
+                <div class="impact-title">Department-aware RAG</div>
+                <div class="impact-desc">Azure Search · multi-agent document workflows · retrieval bound to existing org permissions</div>
+              </div>
+            </div>
+            <div class="impact-row">
+              <div class="impact-icon">8×</div>
+              <div class="impact-body">
+                <div class="impact-title">8-Pass Redaction Platform</div>
+                <div class="impact-desc">Azure AI Foundry + AWS Bedrock · messy PDFs/OCR/images · DOJ · HIPAA · public-sector compliance</div>
+              </div>
             </div>
           </div>
         </section>
 
         <!-- ARCHITECTURE -->
         <section>
-          <div class="section-label">Architecture</div>
+          <div class="section-label">Architecture Focus</div>
           <div class="card">
-            <div class="exec-summary">
-              I keep architecture diagrams for the systems I build, including:<br /><br />
-              Distributed system designs<br />
-              RAG pipelines<br />
-              Agent workflows<br />
-              CI/CD evaluation gates<br />
-              Cloud deployment patterns<br />
-              Identity and access boundaries<br />
-              Compliance and safety controls
+            <div class="tags">
+              <span class="tag">Distributed systems</span>
+              <span class="tag">RAG pipelines</span>
+              <span class="tag">Agent workflows</span>
+              <span class="tag">CI/CD eval gates</span>
+              <span class="tag">Cloud deployment</span>
+              <span class="tag">Identity boundaries</span>
+              <span class="tag">Compliance &amp; safety</span>
             </div>
           </div>
         </section>
 
         <!-- CAREER + EDUCATION -->
         <section>
-          <div class="section-label">Career & Education</div>
+          <div class="section-label">Career &amp; Education</div>
           <div class="timeline-certs">
-            <div>
-              <div class="card">
-                <div class="timeline">
-                  <div class="timeline-track"></div>
-                  <div class="timeline-item">
-                    <div class="timeline-role">Engineering Leader, AI Platform & Infrastructure</div>
-                    <div class="timeline-meta">ITD · 2024–Present</div>
-                  </div>
-                  <div class="timeline-item">
-                    <div class="timeline-role">Founding AI Engineer</div>
-                    <div class="timeline-meta">Speetch.AI · 2023–2024</div>
-                  </div>
-                  <div class="timeline-item">
-                    <div class="timeline-role">Senior Engineering Manager</div>
-                    <div class="timeline-meta">Coupa · 2022–2023</div>
-                  </div>
-                  <div class="timeline-item">
-                    <div class="timeline-role">Engineering Manager</div>
-                    <div class="timeline-meta">Wiser · 2022</div>
-                  </div>
-                  <div class="timeline-item">
-                    <div class="timeline-role">Engineering Manager</div>
-                    <div class="timeline-meta">NetScout · 2016–2021</div>
-                  </div>
-                  <div class="timeline-item">
-                    <div class="timeline-role">Backend and Distributed Systems Engineering</div>
-                    <div class="timeline-meta">Roche, Tesla, Gilead, Thermo Fisher, Siemens Health, Lehman Brothers, Unilever · 2006–2016</div>
-                  </div>
+            <div class="card">
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-role">Engineering Leader, AI Platform &amp; Infrastructure</div>
+                  <div class="timeline-meta">ITD · 2024–Present</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-role">Founding AI Engineer</div>
+                  <div class="timeline-meta">Speetch.AI · 2023–2024</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-role">Senior Engineering Manager</div>
+                  <div class="timeline-meta">Coupa · 2022–2023</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-role">Engineering Manager</div>
+                  <div class="timeline-meta">Wiser · 2022</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-role">Engineering Manager</div>
+                  <div class="timeline-meta">NetScout · 2016–2021</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-role">Backend &amp; Distributed Systems</div>
+                  <div class="timeline-meta">Roche · Tesla · Gilead · Thermo Fisher · Siemens Health · Lehman · Unilever · 2006–2016</div>
                 </div>
               </div>
             </div>
-            <div>
-              <div class="card">
-                <div class="exec-summary">
-                  <strong>Education and Certifications</strong><br /><br />
-                  M.S., Information Technology<br />
-                  Manipal University, India · 2003<br /><br />
-                  Generative AI with Large Language Models<br />
-                  DeepLearning.AI + AWS<br /><br />
-                  Agentic AI with Google Antigravity and GCP<br /><br />
-                  Databricks Generative AI Engineer Associate · In Progress<br /><br />
-                  AWS Machine Learning Engineer Associate, MLA-C01 · In Progress
+            <div class="card">
+              <div class="tag-group">
+                <div class="tag-group-label">Education</div>
+                <div class="tags">
+                  <span class="tag">M.S. Information Technology · Manipal · 2003</span>
+                </div>
+              </div>
+              <div class="tag-group">
+                <div class="tag-group-label">Certifications</div>
+                <div class="tags">
+                  <span class="tag">GenAI with LLMs · DeepLearning.AI + AWS</span>
+                  <span class="tag">Agentic AI · Google / GCP</span>
+                  <span class="tag">Databricks GenAI Engineer · In Progress</span>
+                  <span class="tag">AWS ML Engineer MLA-C01 · In Progress</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- A FEW THINGS I CARE ABOUT -->
+        <!-- PRINCIPLES -->
         <section>
-          <div class="section-label">A Few Things I Care About</div>
-          <div class="card">
-            <div class="exec-summary">
-              Build the platform, not just the feature.<br /><br />
-              Keep humans in the loop when the cost of being wrong is high.<br /><br />
-              Measure AI systems in production, not just in notebooks.<br /><br />
-              Make permissions part of the architecture.<br /><br />
-              Keep the system boring where it should be boring.<br /><br />
-              And when something breaks, look at the logs first.
-            </div>
+          <div class="section-label">Principles</div>
+          <div class="principles">
+            <div class="principle"><strong>Platform over feature</strong>Build the system, not just the demo.</div>
+            <div class="principle"><strong>Humans in the loop</strong>When the cost of being wrong is high.</div>
+            <div class="principle"><strong>Measure in production</strong>Not just notebooks.</div>
+            <div class="principle"><strong>Permissions as architecture</strong>Access control is not an afterthought.</div>
+            <div class="principle"><strong>Boring where it should be</strong>Reliability over novelty.</div>
+            <div class="principle"><strong>Logs first</strong>When something breaks.</div>
           </div>
         </section>
 
         <!-- FOOTER -->
         <footer>
           <div>© 2026 Arif Azim</div>
-          <div>Engineering Leadership · Platform Engineering · AI Infrastructure</div>
+          <div>Engineering Leadership · Platform · AI Infrastructure</div>
         </footer>
       </div>
     </div>
   </div>
 
   <script>
-    // Dark/Light theme toggle
-    const rootHtml = document.documentElement;
-    const toggleBtn = document.getElementById('themeToggle');
+    (function () {
+      const root = document.documentElement;
+      const toggleBtn = document.getElementById('themeToggle');
+      const themeLabel = document.getElementById('themeLabel');
 
-    toggleBtn.addEventListener('click', () => {
-      const current = rootHtml.getAttribute('data-theme') || 'dark';
-      const next = current === 'dark' ? 'light' : 'dark';
-      rootHtml.setAttribute('data-theme', next);
-    });
+      // Persist preference
+      const stored = localStorage.getItem('theme');
+      if (stored === 'light' || stored === 'dark') {
+        root.setAttribute('data-theme', stored);
+      }
 
-    // Parallax motion
-    const parallaxLayer = document.querySelector('.parallax-layer');
-    window.addEventListener('scroll', () => {
-      const offset = window.scrollY * 0.08;
-      parallaxLayer.style.transform = `translate3d(0, ${offset}px, 0)`;
-    });
+      function updateLabel() {
+        const current = root.getAttribute('data-theme') || 'dark';
+        themeLabel.textContent = current === 'dark' ? 'Light' : 'Dark';
+      }
+      updateLabel();
 
-    // Animated section headers on scroll
-    const labels = document.querySelectorAll('.section-label');
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
+      toggleBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const current = root.getAttribute('data-theme') || 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateLabel();
+      });
+
+      // Apple-style multi-layer parallax (scroll + subtle pointer)
+      const layers = document.querySelectorAll('.parallax-layer');
+      let ticking = false;
+      let scrollY = 0;
+      let pointerX = 0;
+      let pointerY = 0;
+
+      function updateParallax() {
+        layers.forEach(function (layer) {
+          const depth = parseFloat(layer.getAttribute('data-depth')) || 0.1;
+          const y = scrollY * depth;
+          const px = pointerX * depth * 18;
+          const py = pointerY * depth * 12;
+          layer.style.transform = 'translate3d(' + px + 'px, ' + y + 'px, 0)';
         });
-      },
-      { threshold: 0.2 }
-    );
-    labels.forEach(label => observer.observe(label));
+        ticking = false;
+      }
+
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', function () {
+        scrollY = window.scrollY || window.pageYOffset;
+        requestTick();
+      }, { passive: true });
+
+      window.addEventListener('pointermove', function (e) {
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
+        pointerX = (e.clientX - cx) / cx;
+        pointerY = (e.clientY - cy) / cy;
+        requestTick();
+      }, { passive: true });
+
+      // Section labels reveal
+      const labels = document.querySelectorAll('.section-label');
+      const observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.18, rootMargin: '0px 0px -40px 0px' }
+      );
+      labels.forEach(function (label) {
+        observer.observe(label);
+      });
+    })();
   </script>
 </body>
 </html>
