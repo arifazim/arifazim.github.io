@@ -6,7 +6,7 @@
   <title>Arif Azim - AI Platform Leader</title>
   <meta name="description" content="AI Platform Leader. Teams of 7 to 15. Production agentic systems under DOJ and HIPAA constraints, including forward-deployed work on Azure AI Foundry and AWS Bedrock." />
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
@@ -166,7 +166,7 @@
             <h3 class="font-semibold text-lg">Routing Agent</h3>
             <span class="text-xs text-blue-400 font-medium">ITD</span>
           </div>
-          <p class="text-sm text-zinc-400 mb-4">LangGraph routing with guardrails and retry budgets. 65% fewer escalations at 8K+ sessions a day. Separate system from the support resolver above.</p>
+          <p class="text-sm text-zinc-400 mb-4">LangGraph routing with guardrails and retry budgets. 65% fewer escalations at 8K+ sessions a day.</p>
         </div>
 
         <div class="card glass rounded-2xl p-6">
@@ -174,7 +174,7 @@
             <h3 class="font-semibold text-lg">Role-Based Policy Assistant</h3>
             <span class="text-xs text-blue-400 font-medium">ITD</span>
           </div>
-          <p class="text-sm text-zinc-400 mb-4">Role-based hybrid RAG on Azure Search. Retrieval latency from 4.5s to 1.8s P95. This is not the 10K support-session figure.</p>
+          <p class="text-sm text-zinc-400 mb-4">Role-based hybrid RAG on Azure Search. Retrieval latency from 4.5s to 1.8s P95.</p>
         </div>
 
         <div class="card glass rounded-2xl p-6">
@@ -182,7 +182,7 @@
             <h3 class="font-semibold text-lg">PII Redaction Engine</h3>
             <span class="text-xs text-blue-400 font-medium">ITD</span>
           </div>
-          <p class="text-sm text-zinc-400 mb-4">DOJ and HIPAA pipelines on Textract and Comprehend, 50K+ documents a month. Manual audit from 5 days to 1 day per batch. That cut is the 80% tile.</p>
+          <p class="text-sm text-zinc-400 mb-4">DOJ and HIPAA pipelines on Textract and Comprehend, 50K+ documents a month. Manual audit from 5 days to 1 day per batch.</p>
         </div>
 
         <div class="card glass rounded-2xl p-6">
@@ -190,7 +190,7 @@
             <h3 class="font-semibold text-lg">Document Intelligence + Reconciliation Agents</h3>
             <span class="text-xs text-blue-400 font-medium">ITD</span>
           </div>
-          <p class="text-sm text-zinc-400 mb-4">Extraction and reconciliation pipeline. 98.4% extraction accuracy. $12M+ in monthly transactions reconciled. Separate from the PII audit cut.</p>
+          <p class="text-sm text-zinc-400 mb-4">Extraction and reconciliation pipeline. 98.4% extraction accuracy. $12M+ in monthly transactions reconciled.</p>
         </div>
 
         <div class="card glass rounded-2xl p-6">
@@ -214,23 +214,18 @@
       <div class="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-3.5">AI & Agentic Systems</div>
       <div class="flex flex-wrap gap-2.5">
         <div class="skill-item">
-          <img src="https://cdn.simpleicons.org/langchain/1C3C3C" alt="LangChain" width="24" height="24" />
+          <img src="https://cdn.simpleicons.org/langchain/FFFFFF" alt="LangChain" width="24" height="24" />
           <span>LangChain / LangGraph</span>
         </div>
         <div class="skill-item">
-          <img src="https://cdn.simpleicons.org/openai/412991" alt="OpenAI" width="24" height="24" />
-          <span>LLM / RAG</span>
+          <img src="icons/openai.svg" alt="OpenAI" width="24" height="24" />
+          <span>OpenAI</span>
         </div>
         <div class="skill-item">
-          <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" width="24" height="24" />
-          <span>Python</span>
-        </div>
-        <div class="skill-item">
-          <div class="w-6 h-6 rounded-md bg-blue-500/20 flex items-center justify-center text-[11px] font-bold text-blue-400">MCP</div>
+          <img src="https://cdn.simpleicons.org/modelcontextprotocol/FFFFFF" alt="MCP" width="24" height="24" />
           <span>MCP / A2A</span>
         </div>
         <div class="skill-item">
-          <div class="w-6 h-6 rounded-md bg-emerald-500/20 flex items-center justify-center text-[11px] font-bold text-emerald-400">G</div>
           <span>Guardrails</span>
         </div>
       </div>
@@ -241,11 +236,11 @@
       <div class="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-3.5">Cloud & Infrastructure</div>
       <div class="flex flex-wrap gap-2.5">
         <div class="skill-item">
-          <img src="https://cdn.simpleicons.org/amazonaws/FF9900" alt="AWS" width="24" height="24" />
+          <img src="icons/aws.svg" alt="AWS" width="24" height="24" />
           <span>AWS (Bedrock, Lambda, Textract)</span>
         </div>
         <div class="skill-item">
-          <img src="https://cdn.simpleicons.org/microsoftazure/0078D4" alt="Azure" width="24" height="24" />
+          <img src="icons/azure.svg" alt="Azure" width="24" height="24" />
           <span>Azure AI Foundry</span>
         </div>
         <div class="skill-item">
@@ -268,15 +263,20 @@
       <div class="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-3.5">Retrieval & Knowledge</div>
       <div class="flex flex-wrap gap-2.5">
         <div class="skill-item">
-          <div class="w-6 h-6 rounded-md bg-teal-500/20 flex items-center justify-center text-[11px] font-bold text-teal-400">V</div>
-          <span>FAISS / Qdrant / Chroma</span>
+          <span>FAISS</span>
         </div>
         <div class="skill-item">
-          <div class="w-6 h-6 rounded-md bg-orange-500/20 flex items-center justify-center text-[11px] font-bold text-orange-400">H</div>
+          <img src="https://cdn.simpleicons.org/qdrant/DC244C" alt="Qdrant" width="24" height="24" />
+          <span>Qdrant</span>
+        </div>
+        <div class="skill-item">
+          <img src="icons/chroma.svg" alt="Chroma" width="24" height="24" />
+          <span>Chroma</span>
+        </div>
+        <div class="skill-item">
           <span>Hybrid RAG + Reranking</span>
         </div>
         <div class="skill-item">
-          <div class="w-6 h-6 rounded-md bg-purple-500/20 flex items-center justify-center text-[11px] font-bold text-purple-400">E</div>
           <span>LLM-as-Judge / Evals</span>
         </div>
       </div>
@@ -307,27 +307,7 @@
           <span>React / Next.js</span>
         </div>
         <div class="skill-item">
-          <img src="https://cdn.simpleicons.org/githubactions/2088FF" alt="CI/CD" width="24" height="24" />
           <span>CI/CD</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Developer Tooling -->
-    <div>
-      <div class="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-3.5">Developer Tooling</div>
-      <div class="flex flex-wrap gap-2.5">
-        <div class="skill-item">
-          <img src="https://cdn.simpleicons.org/anthropic/191919" alt="Claude" width="24" height="24" />
-          <span>Claude Code</span>
-        </div>
-        <div class="skill-item">
-          <img src="https://cdn.simpleicons.org/github/181717" alt="GitHub Copilot" width="24" height="24" />
-          <span>GitHub Copilot</span>
-        </div>
-        <div class="skill-item">
-          <div class="w-6 h-6 rounded-md bg-violet-500/20 flex items-center justify-center text-[11px] font-bold text-violet-400">C</div>
-          <span>Cursor</span>
         </div>
       </div>
     </div>
@@ -341,25 +321,29 @@
       <div class="glass rounded-2xl p-6 space-y-7">
         <div>
           <div class="font-medium">AI Platform Leader</div>
-          <div class="text-sm text-zinc-500">ITD (Public Sector) · Oakland, CA · May 2024 – Present</div>
-          <p class="text-sm text-zinc-400 mt-1">Lead 7-engineer platform team. Hands-on ~50% of the time.</p>
+          <div class="text-sm text-zinc-500">ITD (Public Sector) · Oakland, CA · May 2024 - Present</div>
+          <p class="text-sm text-zinc-400 mt-1">Leads a 7-engineer platform team. Owns architecture for the support, retrieval, and redaction systems.</p>
+        </div>
+        <div>
+          <div class="font-medium">Founding AI Engineer</div>
+          <div class="text-sm text-zinc-500">Speetch.AI · 2023 - 2024</div>
         </div>
         <div>
           <div class="font-medium">Senior Engineering Manager</div>
-          <div class="text-sm text-zinc-500">Coupa · San Mateo, CA · Dec 2022 – Oct 2023</div>
-          <p class="text-sm text-zinc-400 mt-1">12-person distributed team (US, Ukraine, India). $2.8M efficiency savings.</p>
+          <div class="text-sm text-zinc-500">Coupa · San Mateo, CA · Dec 2022 - Oct 2023</div>
+          <p class="text-sm text-zinc-400 mt-1">12-person team (US, Ukraine, India). $2.8M a year in automation savings from backend platform services.</p>
         </div>
         <div>
           <div class="font-medium">Engineering Manager</div>
-          <div class="text-sm text-zinc-500">Wiser · San Mateo, CA · 2022</div>
+          <div class="text-sm text-zinc-500">Wiser · San Mateo, CA · 2022, before Coupa</div>
         </div>
         <div>
           <div class="font-medium">Sr. Staff Engineer (Tech Lead)</div>
-          <div class="text-sm text-zinc-500">NetScout · San Jose, CA · 2016 – 2021</div>
+          <div class="text-sm text-zinc-500">NetScout · San Jose, CA · 2016 - 2021</div>
         </div>
         <div>
           <div class="font-medium">Earlier Roles</div>
-          <div class="text-sm text-zinc-500">Roche · Tesla · Gilead · Thermo Fisher · Siemens Health · Lehman Brothers · Unilever</div>
+          <div class="text-sm text-zinc-500">Roche · Tesla · Gilead · Thermo Fisher · Siemens Health · Lehman Brothers · Unilever · 2006 - 2016</div>
         </div>
       </div>
     </section>
@@ -368,7 +352,7 @@
     <section class="mb-16">
       <h2 class="text-xs font-semibold tracking-[0.2em] uppercase text-blue-400 mb-6">Education & Certifications</h2>
       <div class="glass rounded-2xl p-6 space-y-3 text-sm">
-        <div>MS, Information Technology — Manipal University (SMU), India</div>
+        <div>MS, Information Technology, Sikkim Manipal University (SMU), India, 2003</div>
         <div class="text-zinc-400">Generative AI with Large Language Models — DeepLearning.AI + AWS</div>
         <div class="text-zinc-400">Agentic AI — Google / GCP</div>
       </div>
